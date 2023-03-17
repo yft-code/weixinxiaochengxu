@@ -1,0 +1,5 @@
+<!--pages/prompt/prompt.wxml-->
+<top title="{{title}}"></top>
+<view class="tips">
+  <tips url="{{url}}" text="{{text}}"></tips>
+</view>

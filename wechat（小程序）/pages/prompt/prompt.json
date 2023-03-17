@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "top":"/components/top/top",
+    "tips":"../../components/tips/tips"
+  }
+}

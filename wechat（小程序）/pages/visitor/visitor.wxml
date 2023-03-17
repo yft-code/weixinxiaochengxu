@@ -1,0 +1,174 @@
+<!--index.wxml-->
+<view class="container">
+  <top title="{{title}}"></top>
+<view>
+  <view class="zhanwei">
+</view>
+<form bindsubmit="formSubmit">
+  <view class="formContainer">
+     <view class="formPadding">
+     <view
+     class="inputContainer">
+      <label class="inputLabel">
+        访客姓名 </label>
+       <input 
+       class="inputFoucs"
+        placeholder-class="inputPlaceholder"  name='visitorName' value='{{form.visitorName}}' placeholder="请输入访客姓名" type="text"/>
+     </view>
+     <view  class="inputContainer">
+      <label class="inputLabel">
+        联系方式
+       </label>
+       <input  class="inputFoucs"  placeholder-class="inputPlaceholder" name='visitorContact' type='number' value='{{form.visitorContact}}' placeholder="请输入联系方式"/>
+     </view>
+     <view  class="inputSexContainer inputContainer">
+      <label class="inputLabel">
+        性别
+       </label>
+       <view>
+        <text bindtap="changeBoy"  class="{{current===0?'sexActive':'sexInactive'}}">男</text>
+        <text bindtap="changeGril" class="{{current===1?'sexActive unique':'sexInactive unique'}}">女</text>
+      </view>
+     </view>
+     <view  class="inputContainer">
+      <label class="inputLabel">
+        造访对象
+       </label>
+       <view bindtap="showObjectBottom" class="selectContainer">
+                         <view class="selectedContainer" wx:if="{{visitor}}">{{visitor}}</view>
+                         <view wx:else="{{!visitor}}" class="selectPlaceholder">请选择造访对象</view>
+                         <image
+                          class="selectImg" 
+                          src="/static/image/visitor/right.png" 
+                           >
+                         </image>
+                       </view>
+     </view>
+     <view  class="inputContainer">
+      <label class="inputLabel">
+        造访时间
+       </label>
+       <view bindtap="showBottom" class="selectContainer" >
+                         <view class="selectedContainer"
+                          wx:if="{{year}}">{{year}}年{{month}}月{{day}}日 {{hour}}:{{minute}}
+                          </view>
+                         <view wx:else="{{!year}}" class="selectPlaceholder">请选择造访时间</view>
+                         <image
+                          class="selectImg" 
+                          src="/static/image/visitor/right.png" 
+                           >
+                         </image>
+       </view>
+     </view>
+     <view  class="inputContainer">
+      <label class="inputLabel">
+        车牌号
+        <text class="mark">(选填)</text>
+       </label>
+       <view class="carContainer">
+       <view bind:tap="showProvinceBoard"  class="car">
+       {{carNum[0]?carNum[0]:'京'}} 
+       </view>
+     </view>
+       <input class="inputFoucs inputCar" placeholder-class="inputPlaceholder" placeholder="请输入车牌号" name='vehicleNumber' type="text" value='{{form.vehicleNumber}}'/>
+   
+     </view>
+     <view  class="textAreaContainer">
+      <view class="inputAreaLabel">
+        造访理由
+       </view>
+       <textarea placeholder-class="placeholderStyle"  class="textArea" placeholder="请输入造访理由" type="text" name='visitReason'  value='{{form.visitReason}}'/>
+     </view>
+     </view>
+  </view>
+  <view class="btnType">
+    <button  form-type="submit" class="confirm">提交</button>
+  </view>
+</form>
+<!-- 虚拟键盘 -->
+<view class="keyboard" hidden="{{ !keyboard }}" wx:if="{{ keyboardType === 1 }}">
+  <!-- <view class="keyboardClose">
+    <view class="keyboardClose_btn" bindtap='closeKeyboard'>关闭</view>
+  </view> -->
+  <!-- 省份简写键盘 -->
+  <view class="keyboard-item">
+    <view class="keyboard-line" wx:for="{{ provinces }}" wx:key="index">
+      <view class="keyboard-btn" wx:for="{{ item }}" wx:key="index" data-val="{{ itemlist }}" wx:for-item="itemlist" bindtap='chooseProvince'>
+        {{ itemlist }}
+      </view>
+    </view>
+    <view class="keyboard-del" bindtap="delProvince">
+      <text>清除</text>
+    </view>
+  </view>
+</view>
+ <!-- 时间弹框 -->
+ <view>
+  <modalView type="{{type}}" class='modal-content'>
+    <view>
+      <scroll-view scroll-y class='main-content'>
+      <view class="modelContainer">
+      <view class="btnType" bindtap="handleCancel">
+        取消
+      </view>
+      <view class="btnType" bindtap="handleHide">
+        确定
+      </view>
+      </view>
+      <view>
+  <!-- <view>{{year}}年{{month}}月{{day}}日</view> -->
+  <picker-view indicator-style="height: 50px;" class="pickView" value="{{value}}" bindchange="bindChange"> 
+    <picker-view-column>
+      <view wx:for="{{years}}" wx:key="index" class="timeItem">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}"  wx:key="index" class="timeItem">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}"  wx:key="index" class="timeItem">{{item}}日</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{hours}}"  wx:key="index" class="timeItem">{{item}}时</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{minutes}}"  wx:key="index" class="timeItem">
+         {{item}}分
+      </view>
+    </picker-view-column>
+  </picker-view>
+</view>
+      </scroll-view>
+    </view>
+  </modalView>
+</view>
+<!-- 对象选择弹框 -->
+<view>
+  <modalView type="{{type}}" class='modal-content-object'>
+    <view>
+      <scroll-view scroll-y class='main-content'>
+      <view class="modelContainer">
+      <view class="btnType" bindtap="handleCancelObject">
+        取消
+      </view>
+      <view class="btnType" bindtap="handleHideObject">
+        确定
+      </view>
+      </view>
+      <view>
+  <!-- <view>{{year}}年{{month}}月{{day}}日</view> -->
+  <picker-view indicator-style="height: 50px;" class="pickView" value="{{value}}"      bindchange="bindChangeObject"> 
+    <picker-view-column>
+      <view  wx:for="{{countries}}" wx:key="index" class="pickViewCountry">{{item.tenantName}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+      </scroll-view>
+    </view>
+  </modalView>
+</view>
+<!-- 提示框 -->
+<!-- <button type="ghost" bindtap="handleText">只显示文本</button> -->
+<i-toast id="toast"/>
+</view>
+</view>
+

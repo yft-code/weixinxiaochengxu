@@ -1,0 +1,81 @@
+<!--pages/repairpending/handle/handle.wxml-->
+
+<view class="container">
+<top title="{{title}}"></top>
+<view class="zhanwei">
+</view>
+  <view>
+  <view class="handleContainer">
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view class="massageDetail">
+          智能照明设备
+        </view>
+      </view>
+      <view>  
+      </view>
+    </view>
+<view class="recordProcess">
+  <view class="recordList">
+  <view class="repairWords">
+      <view class="entryTitle">申请时间</view>
+      <view class="times">{{deviceList.repairTime}}</view>
+  </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">位置</view>
+      <view class="times">
+      {{deviceList.buildingName}}
+      {{deviceList.region}}
+      {{deviceList.roomName}}
+      </view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">申请人</view>
+      <view class="times">{{deviceList.applicant}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">联系方式</view>
+      <view class="times">{{deviceList.applicantContact}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">报修内容</view>
+      <view class="times">{{deviceList.repairContent}}</view>
+    </view>
+  </view>
+  <view class="imgContainer">
+    <view class="grid-container">
+        <view class="item" wx:for="{{deviceList.photoList}}" wx:key="index">
+          <image class="img" src="{{item}}" mode=""/>
+        </view>
+      </view> 
+  </view>
+  <view>
+    <view class="handleResult">
+      处理结果
+    </view>
+    <view class="textAreaContainer">
+      <textarea  maxlength="50" placeholder-class="placeholderStyle"  class="textArea" placeholder="若无填无即可，如有异常请说明。" value="{{result}}" type="text"/>
+      <!-- <span class="xianzhi">{{remnant}}/50</span> -->
+    </view>
+  </view>
+</view>
+  </view>
+</view>
+<view class="btnType">
+    <view bindtap="sumbit"  class="confirm">提交</view>
+  </view>
+</view>
+    <!-- 提示框 -->
+    <i-toast id="toast" />

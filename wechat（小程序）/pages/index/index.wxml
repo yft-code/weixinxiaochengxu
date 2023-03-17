@@ -1,0 +1,96 @@
+<!--index.wxml-->
+<view class="container">
+ 
+ <view class="indexTitle" style="padding-top:{{barHeight + 10}}px;">
+  中国宿迁电子产业园区
+ </view>  
+ <view class="top">
+ </view>
+  <view class="userinfo">
+
+   <image src="/static/image/index/bg.png" class="bgImg"></image>
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" >
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName" class="userNickName"></open-data>
+      <view>
+      <open-data type="userGender"></open-data>
+      </view>
+      
+    </block>
+    <view class="temporyRecord"  bindtap="getPass" wx:if="{{roleCode === 'ROLE_WECHAT'}}" >获取通信证</view>
+  </view>
+  <view class="detail">
+     <view class="detailLi"  bindtap="parkingfee" wx:if="{{roleCode !== 'ROLE_WECHAT'}}">
+     <image src="/static/image/index/park.png" class="detailImg"></image>
+     <view class="detailRight">
+     <view class="detailTitle">停车缴费</view>
+     <view class="detailNote">缴费后请在半小时后离场</view>
+     </view>
+     
+     <view class="clear"></view>
+     </view>
+     <view class="detailLi" bindtap="alarmrecord" wx:if="{{roleCode !== 'ROLE_WECHAT'}}">
+     <image src="/static/image/index/alarm.png" class="detailImg"></image>
+     <view class="detailRight">
+     <view class="detailTitle">告警记录</view>
+     <view class="detailNote">处理告警结果，查看告警记录</view>
+     </view>
+     <view class="todo" wx-if="{{isAlarmNotice}}">待办</view>
+     <view class="clear"></view>
+     </view>
+     <view class="detailLi"  bindtap="applyrepair" wx:if="{{roleCode !== 'ROLE_WECHAT'}}">
+     <image src="/static/image/index/repair.png" class="detailImg"></image>
+     <view class="detailRight">
+     <view class="detailTitle">维修待办</view>
+     <view class="detailNote">处理报修结果,查看报修记录</view>
+     </view>
+     <view class="todo" wx:if="{{noticeShow}}">待办</view>
+     <view class="clear"></view>
+     </view>
+     <view class="detailLi"  bindtap="vistorregister" wx:if="{{roleCode === 'ROLE_WECHAT'}}">
+     <image src="/static/image/index/vistorregister.png" class="detailImg"></image>
+     <view class="detailRight">
+     <view class="detailTitle">访客登记</view>
+     <view class="detailNote">填写访客信息获取通行证</view>
+     </view>
+
+     <view class="clear"></view>
+     </view>
+     <view class="detailLi"  bindtap="parkpay" wx:if="{{roleCode === 'ROLE_WECHAT'}}">
+     <image src="/static/image/index/parkpay.png" class="detailImg"></image>
+     <view class="detailRight">
+     <view class="detailTitle">停车缴费</view>
+     <view class="detailNote">缴费后请在半小时后离场</view>
+     </view>
+     <view class="clear"></view>
+     </view>
+     <view class="detailLi"  bindtap="applyRepair" wx:if="{{roleCode === 'ROLE_WECHAT'}}">
+     <image src="/static/image/index/applyrepair.png" class="detailImg"></image>
+     <view class="detailRight">
+     <view class="detailTitle">报修申请</view>
+     <view class="detailNote">提交申请,查看报修记录</view>
+     </view>
+
+     <view class="clear"></view>
+     </view>
+  </view>
+  <view class="foot">
+    <view class="footLi" bindtap="visitor" wx:if="{{roleCode === 'ROLE_WECHAT'}}">
+    <image  src="/static/image/index/visitor.png" class="footImg"/>
+
+    <view class="footTitle"  >造访记录</view>
+    </view>
+    <view class="footLi" bindtap="mycar">
+    <image  src="/static/image/index/mycar.png" class="footImg"/>
+
+    <view class="footTitle"  >我的车辆</view>
+    </view>
+    <view class="footLi" bindtap="payrecord">
+    <image  src="/static/image/index/payrecord.png" class="footImg"/>
+
+    <view class="footTitle" >缴费记录</view>
+    </view>
+  </view>
+</view>

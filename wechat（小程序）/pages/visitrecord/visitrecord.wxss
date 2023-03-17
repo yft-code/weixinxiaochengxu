@@ -1,0 +1,105 @@
+
+.messageContainer{
+  padding:25rpx 32rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.showAll{
+  display: flex;
+  justify-content: center;
+  padding-bottom:3rpx;
+}
+.showAllImg{
+  width:32rpx;
+  height:32rpx;
+}
+.titleImg{
+  width: 32rpx;height:32rpx;
+}
+.title{
+  color:rgba(51,51,51,1);
+  font-size: 32rpx;
+}
+.massageDetail{
+  color: #333333;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.massageTitle{
+  padding-bottom: 30rpx;
+  color: rgba(102,102,102,1);
+  font-size: 32rpx;
+}
+.massageCar{
+  padding-bottom: 30rpx;
+  color: rgba(51,51,51,1);
+  font-size: 32rpx;
+}
+.commonLeft{
+  flex: 1.2;
+}
+.commonRight{
+  flex: 1;
+}
+.tr{
+  text-align: right;
+}
+.massageUnique{
+  padding-top: 30rpx;
+  color: rgba(102,102,102,1);
+}
+.recordProcess{
+  padding:0rpx 32rpx 0rpx 32rpx;
+}
+.recordList{
+  padding:0 0 20rpx 0;height: 40rpx;display: flex;align-items: center;
+}
+
+.time{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+padding-left: 18rpx;
+}
+.entryTitle{
+  color:rgba(102,102,102,1);
+  font-size: 32rpx;
+  padding-left: 18rpx;
+}
+.times{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+  padding-left: 16rpx;
+}
+.topTime{
+ 
+  text-align: center;
+  color: rgba(153,153,153,1);
+  font-size: 28rpx;
+}
+.timeSelect{
+  padding: 20rpx 0 16rpx 32rpx;display: flex;align-items: center;
+}
+.imgs{
+  width: 32rpx;height: 32rpx;
+}
+.sx{
+  padding: 0 16rpx;
+  padding-bottom:20px;
+  font-size: 30rpx;
+  color: rgba(240,240,240,1);
+}
+.carNum{
+  font-size: 28rpx;
+  color: rgba(102,102,102,1)
+}
+.line{
+  margin: 0rpx 0 32rpx 0;
+  height: 1rpx;
+  background-color: #F5F5F5;
+}
+.noContainer{
+  border-radius:8rpx;margin:24rpx 32rpx;background-color: #fff;
+}
+
+
+

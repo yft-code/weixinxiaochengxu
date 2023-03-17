@@ -1,0 +1,12 @@
+<view class="nav">
+  <view class="topContainer" style="padding-top:{{barHeight + 10}}px;">
+    <view>
+      <image  bindtap="back" class="topImg"  src="/static/image/common/back.png" mode="" 
+   />
+    </view>
+    <view class="topTitle">
+    {{title}}
+    </view>
+  </view>
+</view>
+<view style="height:calc({{barHeight + 10}}px + 70rpx)"></view>

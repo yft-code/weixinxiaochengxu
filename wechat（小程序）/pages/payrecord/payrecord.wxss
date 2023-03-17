@@ -1,0 +1,174 @@
+
+.messageContainer{
+  padding:25rpx 32rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.payRecord{
+  border-radius:8rpx;margin:24rpx 32rpx;background-color: #fff;
+}
+.massageDetail{
+  color: #333333;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.massageTitle{
+  padding-bottom: 30rpx;
+  color: rgba(102,102,102,1);
+  font-size: 32rpx;
+}
+.massageCar{
+  padding-bottom: 30rpx;
+  color: rgba(51,51,51,1);
+  font-size: 32rpx;
+}
+.commonLeft{
+  flex: 1.2;
+}
+.commonRight{
+  flex: 1;
+}
+.tr{
+  text-align: right;
+}
+.massageUnique{
+  padding-top: 30rpx;
+  color: rgba(102,102,102,1);
+}
+.recordProcess{
+  padding:0rpx 32rpx;
+}
+.recordList{
+  padding:0 0 20rpx 0;height: 40rpx;display: flex;align-items: center;
+}
+.recordImg{
+  width: 32rpx;height:32rpx;
+}
+.payRecordTitle{
+  color:rgba(51,51,51,1);font-size: 32rpx;
+}
+.time{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+padding-left: 18rpx;
+}
+.entryTitle{
+  color:rgba(102,102,102,1);
+  font-size: 32rpx;
+  padding-left: 18rpx;
+}
+.times{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+  padding-left: 16rpx;
+}
+.topTime{
+ 
+  text-align: center;
+  color: rgba(153,153,153,1);
+  font-size: 28rpx;
+}
+.timeSelect{
+  padding: 0 32rpx;display: flex;align-items: center;height:100rpx;
+}
+.imgs{
+  width: 32rpx;height: 32rpx;
+}
+
+
+
+
+/* select选择框 */
+/* 下拉框 */
+  /* search */
+  .search-bar {
+    width: 50%;
+    height: 84rpx;
+    /* background: #fff; */
+    /* border-top: 1rpx solid #f6f6f6; */
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    /* border: 1rpx solid red; */
+  }
+
+  .search-bar .condition {
+    width: 100%;
+    height: 64rpx;
+    /* background-color: #fff; */
+    /* border-radius: 30rpx; */
+    /* background: #F4F4F4; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    position: relative;
+  }
+  
+  .search-bar .condition .option-list {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    left: 0;
+    top: 60rpx;
+    box-shadow: 0px 0px 7px -3px rgba(33, 72, 141, 0.2);
+    background-color: #fff;
+    box-sizing: border-box;
+    /* background: #f4f4f4; */
+    padding: 0rpx 20rpx;
+    margin-top: 4rpx;
+    border-radius: 6rpx;
+  }
+  
+  .option-list .list-item {
+
+    color: #333333;
+    font-size: 26rpx;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search-bar .condition .select-condition {
+    /* color: #BABABA; */
+    font-size: 26rpx;
+    color: #333333;
+  }
+  
+  .search-bar .condition .trigger {
+    width: 0;
+    height: 0;
+    border: 12rpx solid transparent;
+    border-top: 15rpx solid #c2c2c2;
+    position: relative;
+    top: 8rpx;
+    transform: rotate(0deg);
+    transform-origin: center 7rpx;
+    transition: transform 0.4s;
+  }
+  
+  .search-bar .condition .trigger.reverse {
+    transform: rotate(180deg);
+    transform-origin: center 7rpx;
+    transition: transform 0.4s;
+  }
+  .title{
+    min-width: 220rpx;
+  }
+  /* 下拉框结束 */
+  .payRecordContent{
+    padding-bottom:16rpx;
+  }
+.endtimes{
+  padding-left:42rpx;
+  padding-bottom:32rpx;
+}
+.validTime{
+  margin-top:24rpx;
+}
+
+
+
+

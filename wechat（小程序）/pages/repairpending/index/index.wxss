@@ -1,0 +1,208 @@
+/**index.wxss**/
+.imgRecords{
+  border-radius:8rpx;
+  margin:24rpx 32rpx;
+  background-color: #fff;
+}
+.btns{
+  padding:20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.notContainer{
+  border-radius:8rpx;
+  margin:35.86rpx 32rpx;
+  background-color: #fff;
+}
+.formContainer{
+  background-color:#fff;
+  padding-bottom: 32rpx;
+  }
+  .textArea{
+    width: 100%;
+    height: 204rpx;
+    background-color:rgba(249,249,249,1);
+  }
+  .confirm{
+    color:rgba(249,249,249,1);
+    font-size: 32rpx !important;
+    font-weight: 400 !important;
+    width:90% !important;
+    background-color: rgba(17,170,255,1) !important;
+    margin-bottom:50px;
+  }
+  .textAreaContainer{
+    width:100%;
+  }
+  .inputAreaLabel{
+    font-size: 32rpx;
+    color: rgba(51,51,51,0.6);
+    padding:26rpx 20rpx 26rpx 0rpx;
+  }
+  .inputSexContainer{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+  }
+  .sexTitle{
+    font-size: 32rpx;
+    color: rgba(51,51,51,0.6);
+  }
+  .sexActive{
+   color:rgba(17,170,255,1);
+    padding:4rpx 24rpx;
+    background-color:rgba(17,170,255,0.12);
+    border-radius: 10rpx;
+    font-size: 32rpx;
+    border:2rpx solid  #11AAFF;
+  }
+  .sexInactive{
+    padding:6rpx 24rpx;
+    background-color:#F7F7F7;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+  }
+  .unique{
+    margin: 0 0 0 10rpx;
+  }
+  .selectImg {
+    height: 56px;
+    vertical-align: middle;
+  }
+  .titleLeft{
+    padding:20rpx 32rpx;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 160rpx 160rpx 160rpx;
+    grid-gap: 10px;
+    /* background-color: #2196F3; */
+    /* padding: 10px; */
+  }
+  
+  .item {
+    height: 160rpx;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    background-color: #11AAFF;
+  }
+.itemImg{
+  width: 100%;
+  height: 100%;
+}
+.messageContainer{
+  padding:25rpx 32rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.massageDetail{
+  color: #333333;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.massageRight{
+  font-size: 32rpx;
+  color: #FF3141;
+}
+.shortWord{
+  margin-left: 68rpx;
+}
+
+.massageTitle{
+  padding-bottom: 30rpx;
+  color: rgba(102,102,102,1);
+  font-size: 32rpx;
+}
+.massageCar{
+  padding-bottom: 30rpx;
+  color: rgba(51,51,51,1);
+  font-size: 32rpx;
+}
+.commonLeft{
+  flex: 1.2;
+}
+.commonRight{
+  flex: 1;
+}
+.tr{
+  text-align: right;
+}
+.massageUnique{
+  padding-top: 30rpx;
+  color: rgba(102,102,102,1);
+}
+.recordProcess{
+  padding:0rpx 32rpx;
+}
+.recordList{
+  padding:0 0 24rpx 0;height: 40rpx;display: flex;align-items: center;
+}
+.repairBottom{
+  padding-bottom: 60rpx;
+}
+.time{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+padding-left: 18rpx;
+}
+.entryTitle{
+  width: 128rpx;
+  color:rgba(102,102,102,1);
+  font-size: 32rpx;
+  white-space:nowrap;
+}
+.times{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+  padding-left: 16rpx;
+}
+.topTime{
+  text-align: center;
+  color: rgba(153,153,153,1);
+  font-size: 28rpx;
+}
+.timeSelect{
+  padding: 20rpx 0 16rpx 32rpx;display: flex;align-items: center;
+}
+.imgs{
+  width: 32rpx;height: 32rpx;
+}
+.repairWords{
+  display: flex;
+  color:rgba(51,51,51,1);
+  font-size: 32rpx;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 160rpx 160rpx 160rpx;
+  grid-gap: 10px;
+  /* background-color: #2196F3; */
+  /* padding: 10px; */
+}
+
+.item {
+  height: 160rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+.imgContainer{
+  margin-bottom: 24rpx;
+}
+.handleResult{
+  width: 128rpx;
+  color:rgba(102,102,102,1);
+  font-size: 32rpx;
+  white-space:nowrap;
+}
+.resultParent{
+  display: flex;
+}
+.result{
+  padding-bottom: 24rpx;
+  color: rgba(51,51,51,1);
+  font-size: 32rpx;
+    padding-left: 16rpx;
+}
+

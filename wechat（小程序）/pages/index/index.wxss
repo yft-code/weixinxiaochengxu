@@ -1,0 +1,138 @@
+/**index.wxss**/
+.userinfo {
+  width:calc(100% - 60rpx);
+  border-radius: 8rpx;     
+  margin:0 auto;
+  height: 220rpx;
+  position: relative;
+  margin-top:30rpx;
+}
+.indexTitle{
+  padding-left:36rpx;
+  background:#CADBF9;
+  width:100%;
+  color:#000;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom:32rpx; 
+}
+.bgImg{
+  width: 100%;
+  position: absolute;
+  top:0;
+  height: 220rpx;
+}
+.userinfo-avatar {
+  position: absolute;
+  overflow: hidden;
+  width: 98rpx;
+
+  border-radius: 50%;
+  margin-top:60rpx;
+  margin-left:40rpx;
+}
+.userNickName{
+  position: absolute;
+  color:#fff;
+  font-size: 16px;
+  margin-top:80rpx;
+  left:170rpx;
+}
+.temporyRecord{
+  color:#fff;
+  background:rgba(255,255,255,0.2);
+  position:absolute;
+  width:200rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 2px;
+  font-size: 12px;
+  right:32rpx;
+  top:80rpx;
+}
+.container{
+  position: relative;
+  height: 100vh;
+}
+.top{
+  position: absolute;
+  top:150rpx;
+  width:100%;
+  height: 220rpx;
+  background: linear-gradient(to bottom ,#CADBF9,#E7F0FF)
+}
+.detail{
+  margin-top:50rpx;
+}
+.detailLi{
+  width:calc(100% - 60rpx);
+  background:#fff;
+  min-height: 150rpx;
+  border-radius: 8rpx;     
+  margin:0 auto;
+  margin-bottom:16rpx;
+}
+.detailImg{
+  width:80rpx;
+  height: 80rpx;
+  margin:40rpx 0 0 40rpx;
+  float:left;
+}
+.detailRight{
+  float:left;
+  margin-left:30rpx;
+}
+.clear{
+  clear:both;
+}
+.detailTitle{
+  color:#333;
+  font-size: 15px;
+  font-weight: 550;
+  margin-top:30rpx;
+}
+.detailNote{
+  color:#999;
+  font-size: 13px;
+  margin-top:10rpx;
+}
+.todo{
+  float:right;
+  margin-right:36rpx;
+  margin-top:50rpx;
+  background:#FA5151;
+  color:#fff;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 32rpx;
+  padding:8rpx 16rpx;
+}
+.foot{
+  width:calc(100% - 48rpx);
+  background:#fff;
+  min-height: 160rpx;
+  border-radius: 8rpx;     
+  margin:0 auto;
+  margin-top:24rpx;
+  display: flex;
+}
+.footLi{
+  flex:1;
+}
+.footImg{
+  width:60rpx;
+  height: 60rpx;
+  margin:0 auto;
+  margin-top:30rpx;
+  display: block;
+}
+.footTitle{
+  color:#666;
+  font-size: 12px;
+  line-height: 48rpx;
+  height: 48rpx;
+  margin-top:8rpx;
+  text-align: center;
+}

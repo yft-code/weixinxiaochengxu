@@ -1,0 +1,91 @@
+<!--pages/payrecord/payrecord.wxml-->
+<view class="container">
+<top title="{{title}}"></top>
+
+<view>
+<view class="search-bar">
+        <view class="condition" bindtap="showCondition">
+            <view class="select-condition">{{choosedCondition.label}}</view>
+            <view class="trigger {{ conditionVisible ? 'reverse' : ''}}"></view>
+            <cover-view class="option-list" style="height: {{conditionVisible ? '300rpx': '0'}}">
+                <cover-view bindtap="onChnageCondition" data-value="{{item.value}}" class="list-item" wx:for="{{conditionList}}" wx:key="index" wx:for-index="index">
+                    <cover-view class="title">{{item.label}}</cover-view>
+                    <cover-view class="select" wx:if="{{item.select}}">√</cover-view>
+                </cover-view>
+            </cover-view>
+        </view>
+    </view>
+<view class="topTime">
+  {{choosedCondition.label}}
+</view>
+<view wx:if="{{!records||records.length<=0}}">
+  <view class="tipsContainer">
+<view class="tipsImage">
+<image class="tipsImg" src="/static/image/mycar/noData.png">
+</image>
+</view>
+<view class="tipsText">
+  暂无缴费记录
+</view>
+</view>
+</view>
+<view wx:if="{{records&&records.length>0}}" class="payRecordContent">
+  <view wx:for="{{records}}" wx:key="index"
+  class="payRecord"
+>
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view 
+        class="massageCar"
+        >
+        车牌号
+        </view>
+        <view class="massageDetail">
+          {{item.vehicleNumber}}
+        </view>
+      </view>
+      <view class="commonRight">
+        <view  class="massageDetail tr">
+          {{item.payFee}}
+        </view>
+        <view class="massageUnique tr">
+          支付金额
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+<view class="recordProcess">
+  <view class="recordList"  wx:if="{{item.type === '1'}}">
+    <image class="recordImg"  src="/static/image/payrecord/time.png" mode=""/>
+    <text class="time">{{item.parkingTime == 'null' ? item.parkingTime:'--'}}</text>
+  </view>
+  <view class="recordList" wx:if="{{item.type === '1'}}">
+    <image class="recordImg" src="/static/image/payrecord/entry.png" mode=""/>
+    <text class="payRecordTitle">
+    <text class="entryTitle">入园时间</text>
+    <text class="times">{{item.inTime}}</text>
+    </text>
+  </view>
+  <view class="recordList" wx:if="{{item.type === '1'}}">
+    <image   class="recordImg" src="/static/image/payrecord/out.png" mode=""/>
+    <text class="payRecordTitle">
+      <text class="entryTitle">出园时间</text>
+      <text class="times">{{item.outTime}}</text>
+    </text>
+  </view>
+  <view class="recordList validTime" wx:if="{{item.type === '0'}}">
+    <image  class="recordImg" src="/static/image/payrecord/entry.png" mode=""/>
+    <text class="payRecordTitle">
+      <text class="entryTitle">有效时期</text>
+      <text class="times">{{item.startTime}} - </text>
+      <!-- <view class="times">{{item.endTime}}</view> -->
+    </text>
+  </view>
+  <view  class="endtimes" wx:if="{{item.type === '0'}}">{{item.endTime}}</view>
+</view>
+  </view>
+</view>
+</view>
+</view>

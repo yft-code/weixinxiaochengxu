@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/mycar/index/index",
+    "pages/mycar/monthfee/monthfee",
+    "pages/mycar/carnumber/carnumber",
+    "pages/visitor/visitor",
+    "pages/prompt/prompt",  
+    "pages/permit/permit",
+    "pages/parkingfee/parkingfee",
+    "pages/payrecord/payrecord",
+    "pages/applyrepair/applyrepair",
+    "pages/visitrecord/visitrecord",
+    "pages/repairpending/index/index",
+    "pages/repairpending/handle/handle",
+    "pages/alarmrecord/index/index",
+    "pages/alarmrecord/handle/handle",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "登录",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

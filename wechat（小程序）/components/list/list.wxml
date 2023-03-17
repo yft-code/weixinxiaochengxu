@@ -1,0 +1,8 @@
+<!--components/list/list.wxml-->
+<view class="list-box">
+  <view class="list-row {{delIndex === index ? 'touch-move-active' : ''}}" wx:for="{{listData}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:key="index">
+    <view class="title">{{item}}</view>
+    <view class="del-bnt" catchtap="delItem" data-index="{{index}}">删除</view>
+  </view>
+</view>
+

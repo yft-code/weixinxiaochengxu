@@ -1,0 +1,98 @@
+<!--pages/permit/permit.wxml-->
+<view>
+  <top title="{{title}}"></top>
+  <view class="image">
+  <view class="imgContainer">
+    <!-- <canvas type="2d" class="imageLarge" id="myQrcode"></canvas> -->
+    <image class="imageLarge" src="{{imgurl}}" mode=""/>
+  </view>
+  </view>
+  <view class="message">
+    <view class="messageContainer">
+      <view class="commonLeft">
+        <view 
+        class="massageTitle"
+        >
+          访客姓名
+        </view>
+        <view class="massageDetail">
+          {{userInfo.visitorName}}
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+    <view class="messageContainer">
+      <view class="commonLeft">
+        <view 
+        class="massageTitle"
+        >
+          性别
+        </view>
+        <view class="massageDetail">
+          {{userInfo.sex == '0'?'男':'女'}}
+        </view>
+      </view>
+      <view class="commonRight">
+        <view  class="massageTitle">
+          联系方式
+        </view>
+        <view class="massageDetail">
+        {{userInfo.visitorContact}}
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+
+    <view class="messageContainer">
+      <view class="commonLeft">
+        <view 
+        class="massageTitle"
+        >
+          访客时间
+        </view>
+        <view class="massageDetail">
+         {{userInfo.startTime}}
+        </view>
+      </view>
+      <view class="commonRight">
+        <view  class="massageTitle">
+          车牌号
+        </view>
+        <view class="massageDetail">
+          {{userInfo.vehicleNumber}}
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+
+    <view class="messageContainer">
+      <view class="commonLeft">
+        <view 
+        class="massageTitle"
+        >
+        造访对象
+        </view>
+        <view class="massageDetail">
+          {{userInfo.tenantName}}
+        </view>
+      </view>
+      <!-- <view class="common">
+        <view  class="massageTitle">
+          车牌号
+        </view>
+        <view class="massageDetail">
+          浙C·00002
+        </view>
+      </view> -->
+      <view>
+        
+      </view>
+    </view>
+  </view>
+</view>

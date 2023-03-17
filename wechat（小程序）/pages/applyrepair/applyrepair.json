@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "申请修理",
+  "usingComponents": {
+    "modalView": "../../components/modal/modal",
+    "i-toast": "../../dist/toast/index",
+    "top":"../../components/top/top"
+  }
+}

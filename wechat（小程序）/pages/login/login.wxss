@@ -1,0 +1,29 @@
+/**index.wxss**/
+.loginContainer{
+  width:100%;
+  height: 100vh;
+  background-color: #fff !important;
+}
+.confirm{
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-top: 134rpx;
+  color:rgba(249,249,249,1);
+  font-size: 32rpx !important;
+  font-weight: 400 !important;
+  width:86% !important;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: rgba(17,170,255,1) !important;
+}
+.reset{
+  font-weight: 550 !important;
+}
+.login{
+  padding-top:112rpx;
+  width:100%;
+  text-align: center;
+  color:#000000;
+  font-weight:550
+}

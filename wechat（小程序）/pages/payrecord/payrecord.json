@@ -1,0 +1,5 @@
+{  "navigationBarTitleText": "缴费记录",
+  "usingComponents": {
+    "top":"../../components/top/top"
+  }
+}

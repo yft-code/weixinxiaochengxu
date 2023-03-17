@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的车辆",
+  "usingComponents": {
+    "top":"../../../components/top/top",
+    "i-toast": "../../../dist/toast/index"
+  }
+}

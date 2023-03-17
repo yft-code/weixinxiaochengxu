@@ -1,0 +1,34 @@
+/* components/list/list.wxss */
+.list-box{
+  width: 100%;
+  overflow: hidden;
+}
+.list-row{
+  padding-left: 30rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  position: relative;
+  background-color: white;
+  white-space: nowrap;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+.title{
+  display: inline-block;
+  width: 100%;
+}
+.del-bnt{
+  display: inline-block;
+  background-color: red;
+  color: white;
+  width: 200rpx;
+  text-align: center;
+  height: 100%;
+}
+.touch-move-active{
+  -webkit-transform: translateX(-100px);
+  transform: translateX(-100px);
+}

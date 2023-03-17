@@ -1,0 +1,225 @@
+/**index.wxss**/
+.container{
+  height: 100% !important;
+  padding-bottom:100rpx !important ;
+}
+.showAll{
+  display: flex;
+  justify-content: center;
+}
+.showAllImg{
+  width:32rpx;
+  height:32rpx;
+}
+.pickView{
+  width: 100%; height: 300px;
+}
+.pickViewCon{
+  line-height: 50px;text-align: center;
+}
+.room{
+  display: flex;
+  justify-content:space-between;
+  width:100%;
+}
+.itemImg{
+  width:100%;height:100%;
+}
+.modelSelect{
+  display: flex;justify-content: space-between;margin-top:3rpx;padding:0 40rpx;margin:0 auto
+}
+.applyTitle{
+  color:rgba(51,51,51,1);font-size: 32rpx;
+}
+.applyRepairs{
+  border-radius:8rpx;margin:24rpx 32rpx;background-color: #fff;
+}
+.formContainer{
+  height: 100%;
+  background-color:#fff;
+  padding-bottom: 32rpx;
+  }
+  .showDelete{
+    width:30rpx;
+    height:30rpx;
+    position: absolute;
+    top:-14rpx;
+    right:-10rpx;
+    background-color:#999999;
+    border-radius: 50%;
+    color:#fff;
+    font-size:20rpx;
+    line-height: 30rpx;
+    text-align: center;
+  }
+  .btns{
+    padding:20rpx 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+  }
+  .textArea{
+    width: 100%;
+    height: 204rpx;
+    background-color:rgba(249,249,249,1);
+  }
+
+  .confirm{
+    margin-top:32rpx;
+    height: 88rpx !important;
+    line-height: 88rpx !important;
+    color:rgba(249,249,249,1);
+    font-size: 32rpx !important;
+    font-weight: 400 !important;
+    width:90% !important;
+    background-color: rgba(17,170,255,1) !important;
+  }
+  .textAreaContainer{
+    width:100%;
+  }
+  .inputAreaLabel{
+    font-size: 32rpx;
+     color: #666666;
+    padding:26rpx 20rpx 26rpx 0rpx;
+  }
+  .inputSexContainer{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+  }
+  .sexTitle{
+    font-size: 32rpx;
+    color: rgba(51,51,51,0.6);
+  }
+  .sexActive{
+   color:rgba(17,170,255,1);
+    padding:4rpx 24rpx;
+    background-color:rgba(17,170,255,0.12);
+    border-radius: 10rpx;
+    font-size: 32rpx;
+    border:2rpx solid  #11AAFF;
+  }
+  .sexInactive{
+    padding:6rpx 24rpx;
+    background-color:#F7F7F7;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+  }
+  .unique{
+    margin: 0 0 0 10rpx;
+  }
+  .titleLeft{
+    padding:20rpx 32rpx;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 160rpx 160rpx 160rpx;
+    grid-gap: 10px;
+    /* background-color: #2196F3; */
+    /* padding: 10px; */
+  }
+  
+  .item {
+    height: 160rpx;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    position: relative;
+    background-color: #11AAFF;
+  }
+.upload{
+  color:#999999;
+  font-size: 46.66rpx;
+  height: 160rpx;
+  width: 160rpx;
+  background: #f5f5f5;
+border-radius: 4px;
+  line-height: 160rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.messageContainer{
+  padding:25rpx 32rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.massageDetail{
+  color: #333333;
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.massageRight{
+  font-size: 32rpx;
+  /* color: #61C641; */
+}
+.messageNot{
+   color: red;
+}
+.messageHandle{
+  color: #61C641;
+}
+.massageTitle{
+  padding-bottom: 30rpx;
+  color: rgba(102,102,102,1);
+  font-size: 32rpx;
+}
+.massageCar{
+  padding-bottom: 30rpx;
+  color: rgba(51,51,51,1);
+  font-size: 32rpx;
+}
+.commonLeft{
+  flex: 1.2;
+}
+.commonRight{
+  flex: 1;
+}
+.tr{
+  text-align: right;
+}
+.massageUnique{
+  padding-top: 30rpx;
+  color: rgba(102,102,102,1);
+}
+.recordProcess{
+  padding:0rpx 32rpx;
+}
+.recordList{
+  padding:0 0 20rpx 0;height: 40rpx;display: flex;align-items: center;
+}
+.time{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+padding-left: 18rpx;
+}
+.entryTitle{
+  color:rgba(102,102,102,1);
+  font-size: 32rpx;
+}
+.times{
+color: rgba(51,51,51,1);
+font-size: 32rpx;
+  padding-left: 16rpx;
+}
+.topTime{
+ 
+  text-align: center;
+  color: rgba(153,153,153,1);
+  font-size: 28rpx;
+}
+.timeSelect{
+  padding: 0 32rpx;display: flex;align-items: center;height:100rpx;
+}
+.imgs{
+  width: 32rpx;height: 32rpx;
+}
+.jia{
+  font-size: 46rpx;
+}
+
+
+
+
+
+

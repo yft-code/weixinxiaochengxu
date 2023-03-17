@@ -1,0 +1,229 @@
+/**index.wxss**/
+.container{
+  background-color:rgba(249,249,249,1);
+  padding-bottom:100rpx;
+}
+.formContainer{
+background-color:#fff;
+/* padding-bottom: 32rpx; */
+}
+
+.qiye{
+  width: 220rpx;
+}
+.textArea{
+  width: 100%;
+  height: 204rpx;
+  background-color:rgba(249,249,249,1);
+}
+.confirm{
+  height: 88rpx;
+  line-height: 88rpx !important;
+  color:rgba(249,249,249,1);
+  font-size: 32rpx !important;
+  font-weight: 400 !important;
+  width:90% !important;
+ background: rgba(17,170,255,1) !important;
+}
+.textAreaContainer{
+  width:100%;
+}
+
+.monthTimes{
+  font-size: 32rpx;
+  background-color: rgba(249,249,249,1);
+  color: rgba(51,51,51,1);
+  padding:16rpx 32rpx;
+  font-weight: bold;
+}
+.inputBorder{
+  border: none;
+}
+.inputSexContainer{
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+}
+.sexTitle{
+  font-size: 32rpx;
+  color: rgba(51,51,51,0.6);
+}
+.sexActive{
+ color:rgba(17,170,255,1);
+  padding:2rpx 22rpx;
+  background-color:rgba(17,170,255,0.12);
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  border:2rpx solid  #11AAFF;
+}
+.sexInactive{
+  padding:6rpx 24rpx;
+  background-color:#F7F7F7;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}
+.unique{
+  margin: 0 0 0 10rpx;
+}
+.monthPerson{
+  padding:16rpx 32rpx;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.wrapper {
+  padding: 48rpx;
+  display: grid;
+  grid-template-columns: 202rpx 202rpx 202rpx;
+  grid-gap: 24rpx;
+  /* background-color: #2196F3; */
+}
+.wapperChild{
+  background-color: rgba(17,170,255,0.12);
+  height: 202rpx;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 4px;
+}
+.money{
+  padding:56rpx 0 10rpx 0;
+  color:rgba(17,170,255,1);
+  font-size: 36rpx;
+}
+.time{
+  color:rgba(102,102,102,1);
+  font-size: 28rpx;
+}
+.btnType{
+  margin:32rpx 0 0 0;
+}
+/* 车牌号输入的样式*/
+  /* components/CarNumber/carNumber.wxss */
+  .carTitle{
+    padding: 24rpx 32rpx;
+  }
+  .inputs {
+   padding:0 48rpx;
+   display: flex;
+   align-items: center;
+  }
+  .split {
+   font-weight: bold;
+  }
+  .inputs-item {
+   /* border: 1rpx solid #333; */
+   border-radius: 10%;
+   background-color: #F5F5F5;
+   padding: 10rpx 0;
+   margin: 10rpx;
+   width: 65rpx;
+   font-size:36rpx;
+   text-align: center;
+   height: 50rpx;
+  }
+  
+  .new-energy {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: 16rpx;
+   height: 71rpx;
+   width: 68rpx;
+   border: none;
+   color: rgba(153,153,153,1);
+   background-color: #F5F5F5;
+  }
+  .tips{
+   font-size:20rpx;
+  }
+  .new-energy-img{
+   height: 71rpx;
+   width: 68rpx;
+   margin: 10rpx;
+   border: none;
+  }
+  
+  .item-active {
+   border: 5rpx solid #11AAFF;
+   color: #333333;
+   font-size:36rpx;
+  }
+  
+  .keyboard {
+   position: fixed;
+   bottom: 0;
+   /* height: 45vh; */
+   background-color: #d1d5d9;
+   width: 100%;
+   left: 0;
+   padding:10rpx 0 35rpx;
+  }
+  
+  /* 关闭虚拟键盘 */
+  .keyboardClose {
+   height: 70rpx;
+   background-color: #f7f7f7;
+   overflow: hidden;
+  }
+  
+  .keyboardClose_btn {
+   float: right;
+   line-height: 70rpx;
+   font-size: 15px;
+   padding-right: 30rpx;
+  }
+  
+  .keyboard-line {
+   display: flex;
+   justify-content: center;
+  }
+  
+  /* 虚拟键盘-单个按钮 */
+  .keyboard-btn {
+   font-size: 32rpx;
+   color: #333333;
+   background: #fff;
+   display: inline-block;
+   padding: 18rpx;
+   text-align: center;
+   box-shadow: 0 2rpx 0 0 #999999;
+   border-radius: 10rpx;
+   margin: 5rpx 6rpx;
+  }
+  
+  /* 虚拟键盘-删除按钮 */
+  .keyboard-del {
+   font-size: 32rpx;
+   color: #333333;
+   background: #A7B0BC;
+   display: inline-block;
+   padding: 18rpx;
+   box-shadow: 0 2rpx 0 0 #999999;
+   border-radius: 10rpx;
+   margin: 5rpx;
+   position: absolute;
+   bottom: 35rpx;
+   right: 10rpx;
+  }
+  .modelContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top:3rpx;
+    padding:0 40rpx;
+    margin:0 auto
+  }
+  .pickView{
+    width: 100%; height: 600rpx;
+  }
+  .selectItem{
+    line-height: 50px;
+    text-align: center;
+  }
+  .carContainer{
+    display: flex;width:100%;display: flex;flex-direction: row-reverse;
+  }
+  .wapperChildHover{
+    border:1px solid #11AAFF;
+    box-sizing: border-box;
+  }

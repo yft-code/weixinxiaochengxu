@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "临时通行证",
+  "usingComponents": {
+    "top":"/components/top/top"
+  }
+}

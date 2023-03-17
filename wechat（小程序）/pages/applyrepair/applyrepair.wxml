@@ -1,0 +1,201 @@
+<!--index.wxml-->
+<view class="container">
+  <top title="{{title}}"></top>
+  <view>
+    <view class="btns">
+      <button class="applyButtons {{show?'applyButton':'recordButton'}}" bindtap="changeTapApply">
+        报修申请
+      </button>
+      <button class="recordButtons {{!show?'applyButton':'recordButton'}}" bindtap="changeTapRecord">
+        报修记录
+      </button>
+    </view>
+    <view wx:if="{{show}}">
+      <view class="titleLeft">
+        报修申请
+      </view>
+      <form bindsubmit="formSubmit">
+        <view class="formContainer">
+          <view class="formPadding">
+            <view class="inputContainer">
+              <label class="inputLabel">
+                设备类型
+              </label>
+              <view class="selectContainer">
+                <picker class="pickStyle" bindchange="bindDeviceChange" value="{{deviceIndex}}" range="{{deviceTypes}}">
+                  <view wx:if="{{!deviceTypes[deviceIndex]}}"  class="inputPlaceholder">请选择设备类型</view>
+                  <view wx:if="{{deviceTypes[deviceIndex]}}" class="inputFoucs">{{deviceTypes[deviceIndex]}}</view>
+                </picker>
+                <input style="width:0px !important" name='equipmentType' type='text' value='{{form.equipmentType}}'/>
+                <image class="selectImg" src="/static/image/visitor/right.png">
+                </image>
+              </view>
+            </view>
+            <view class="inputContainer">
+              <label class="inputLabel">
+                所属区域
+              </label>
+              <view bindtap="" class="selectContainer">
+                <picker class="pickStyle" bindchange="bindRegionChange" value="{{regionListIndex}}" range="{{regionList}}">
+                  <view wx:if="{{!regionList[regionListIndex]}}" class="inputPlaceholder">请选择所属区域</view>
+                  <view wx:if="{{regionList[regionListIndex]}}" class="inputFoucs">{{regionList[regionListIndex]}}</view>
+                </picker>
+                <input style="width:0px !important" name='region' type='text' value='{{form.region}}'/>
+                <image class="selectImg" src="/static/image/visitor/right.png">
+                </image>
+              </view>
+            </view>
+            <view class="inputContainer">
+              <label class="inputLabel">
+                楼宇
+              </label>
+              <view bindtap="buildingList" class="selectContainer">
+                <picker class="pickStyle" bindchange="bindBuildingChange" value="{{buildingListIndex}}" range="{{buildingList}}">
+                  <view wx:if="{{!buildingList[buildingListIndex]}}" class="inputPlaceholder">请选择楼宇</view>
+                  <view wx:if="{{buildingList[buildingListIndex]}}" class="inputFoucs">{{buildingList[buildingListIndex]}}</view>
+                </picker>
+                <input style="width:0px !important" name='buildingName' type='text' value='{{form.buildingName}}'/>
+                <image class="selectImg" src="/static/image/visitor/right.png">
+                </image>
+              </view>
+
+            </view>
+            <view class="inputContainer">
+              <label class="inputLabel">
+                房间号
+              </label>
+              <view class="room">
+                <picker class="pickStyle" mode="multiSelector" bindchange='bindMultiPickerChange' bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                  <view wx:if="{{!dormitoryVal}}">
+                    <view class="inputPlaceholder">请选择房间号</view>
+                  </view>
+                  <view wx:if="{{dormitoryVal}}" style="width:100%;">
+                    <view class="inputFoucs">{{dormitoryVal}}{{roomVal}}</view>
+                  </view>
+                </picker>
+                <input style="width:0px !important" name='roomFk' type='text' value='{{form.roomFk}}'/>
+                <image class="selectImg" src="/static/image/visitor/right.png">
+                </image>
+              </view>
+            </view>
+            <view class="inputContainer">
+              <label class="inputLabel">
+                申请人 </label>
+              <input  class="inputFoucs" placeholder-class="inputPlaceholder" name='applicant' value='{{form.applicant}}' placeholder="请输入申请人" type="text" />
+            </view>
+            <view class="inputContainer">
+              <label class="inputLabel">
+                联系方式
+              </label>
+              <input class="inputFoucs" placeholder-class="inputPlaceholder" name='applicantContact' type='number' value='{{form.applicantContact}}' placeholder="请输入联系方式" />
+            </view>
+            <view class="textAreaContainer">
+              <view class="inputAreaLabel">
+                报修内容
+                <text class="mark">(选填)</text>
+              </view>
+              <textarea name='repairContent' placeholder-class="placeholderStyle" class="textArea" placeholder="请输入报修内容" value="{{form.repairContent}}" type="text"/>
+            </view>
+            <view class="textAreaContainer">
+              <view class="inputAreaLabel">
+                现场照片
+                <text class="mark">(最多只能上传三张照片)</text>
+              </view>
+              <view>
+                <view>
+                  <view class="grid-container">
+                    <view class="item" wx:for="{{urls}}" wx:key="index">
+                      <image class="itemImg" src="{{item}}" mode="" />
+                      <view bindtap="deleteImg" data-index="{{index}}" class="showDelete">
+                        X
+                      </view>
+                    </view>
+                    <view wx:if="{{urls.length<3}}" class="upload">
+                      <view style="font-size:80rpx" bindtap="headImage">
+                        +
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view>
+          <button form-type="submit" class="confirm">提交</button>
+        </view>
+      </form>
+    </view>
+    <!-- 报修记录 -->
+    <view wx:if="{{!show}}">
+      <view class="search-bar">
+        <view class="condition" bindtap="showCondition">
+          <view class="select-condition">{{choosedCondition.title}}</view>
+          <view class="trigger {{ conditionVisible ? 'reverse' : ''}}"></view>
+          <cover-view class="option-list" style="height: {{conditionVisible ? '300rpx': '0'}}">
+            <cover-view bindtap="onChnageCondition" data-id="{{item.id}}" class="list-item" wx:for="{{conditionList}}" wx:key="index" wx:for-index="index">
+              <cover-view class="title">{{item.title}}</cover-view>
+              <cover-view class="title" wx:if="{{item.select}}">√</cover-view>
+            </cover-view>
+          </cover-view>
+        </view>
+      </view>
+      <view class="topTime">
+     {{choosedCondition.title}}
+      </view>
+      <view>
+        <view wx:for="{{recordAll}}" wx:key="index" class="applyRepairs">
+          <view class="messageContainer">
+            <view class="commonLeft">
+              <view class="massageDetail">
+                {{item.equipmentType==='0'?'智能水电':
+                item.equipmentType==='1'?'智能照明':
+                item.equipmentType==='2'?'安防监控':
+                item.equipmentType==='3'?'其它':''
+                }}
+              </view>
+            </view>
+            <view class="commonRight">
+              <view class="massageRight tr {{item.repairState==='0'?'messageNot':item.repairState==='2'?'messageHandle':'messageHandle'}}">
+                {{item.repairState==='0'?'未处理':
+                item.repairState==='1'?'处理中':
+                item.repairState==='2'?'已处理':'--'
+                }}
+              </view>
+            </view>
+            <view>
+            </view>
+          </view>
+          <view class="recordProcess">
+            <view class="recordList">
+              <text class="applyTitle">
+                <text class="entryTitle">申请时间</text>
+                <text class="times">{{item.repairTime}}</text>
+              </text>
+            </view>
+            <view class="recordList">
+              <text class="applyTitle">
+                <text class="entryTitle">完成时间</text>
+                <text class="times">{{item.completionTime?item.completionTime:'--'}}</text>
+              </text>
+            </view>
+
+            <view class="recordList">
+              <text class="applyTitle">
+                <text class="entryTitle">处理结果</text>
+                <text class="times">{{item.disposeResult?item.disposeResult:'--'}}</text>
+              </text>
+            </view>
+          </view>
+          <!-- 展开和收缩 -->
+          <!-- <view class="showAll" wx:if="{{recordAll&&recordAll.length>2&&index===1}}">
+            <image class="showAllImg" wx:if="{{!showsAll}}" bindtap='showAll'  src="/static/image/common/expend.png" mode=""/>
+            <image class="showAllImg"  wx:if="{{showsAll}}" bindtap='showAll'  src="/static/image/common/close.png" mode=""/>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <!-- 提示框 -->
+    <i-toast id="toast" />
+  </view>
+</view>

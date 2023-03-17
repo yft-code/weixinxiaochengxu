@@ -1,0 +1,19 @@
+/* components/tips/tips.wxss */
+.tipsText{
+  text-align: center;
+  margin-top:20rpx;
+  color:#000000;
+  font-size:32rpx
+}
+.tipsContainer{
+  margin-top:208rpx;
+}
+.tipsImage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tipsImg{
+  width:144rpx;
+  height:144rpx
+}

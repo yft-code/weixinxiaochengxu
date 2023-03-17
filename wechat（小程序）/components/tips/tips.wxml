@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="tipsContainer">
+<view class="tipsImage">
+<image class="tipsImg" src="{{url}}">
+</image>
+</view>
+<view class="tipsText reset">
+  {{text}}
+</view>
+</view>

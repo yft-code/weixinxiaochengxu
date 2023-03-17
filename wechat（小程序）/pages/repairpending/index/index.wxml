@@ -1,0 +1,154 @@
+<!--index.wxml-->
+
+<view class="container">
+  <top title="{{title}}"></top>
+<view>
+ 
+<view class="btns">
+  <button class="applyButtons {{show?'applyButton':'recordButton'}}"  bindtap="changeTapApply">
+    未处理
+  </button>
+  <button class="recordButtons {{!show?'applyButton':'recordButton'}}"  bindtap="changeTapRecord">
+    已处理
+  </button>
+</view>
+<view wx:if="{{show}}">
+<view>
+  <view wx:for="{{records}}" wx:key="index"
+  class="notContainer">
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view class="massageDetail">
+          {{item.equipmentType==='0'?'智能水电':
+          item.equipmentType==='1'?'智能照明':
+          item.equipmentType==='2'?'安防监控':
+          item.equipmentType==='3'?'其它':''
+          }}
+        </view>
+      </view>
+      <view class="commonRight">
+        <view bindtap="handleRepaire" data-id="{{item.id}}"  class="massageRight tr">
+          处理
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+<view class="recordProcess">
+  <view class="recordList">
+    <text class="repairWords">
+    <text class="entryTitle">申请时间</text>
+    <text class="times">{{item.repairTime}}</text>
+    </text>
+  </view>
+  <view class="recordList repairBottom">
+    
+    <text  class="repairWords">
+      <text class="entryTitle shortWord">位置</text>
+      <text class="times">{{item.buildingName}}栋{{item.region}}区{{item.roomName}}</text>
+    </text>
+  </view>
+</view>
+  </view>
+</view>
+</view>
+<!-- 报修记录 -->
+<view wx:if="{{!show}}">
+  <view class="search-bar">
+        <view class="condition" bindtap="showCondition">
+            <view class="select-condition">{{choosedCondition.title}}</view>
+            <view class="trigger {{ conditionVisible ? 'reverse' : ''}}"></view>
+            <cover-view class="option-list" style="height: {{conditionVisible ? '300rpx': '0'}}">
+                <cover-view bindtap="onChnageCondition" data-id="{{item.id}}" class="list-item" wx:for="{{conditionList}}" wx:key="index" wx:for-index="index">
+                    <cover-view class="title">{{item.title}}</cover-view>
+                    <cover-view class="title" wx:if="{{item.select}}">√</cover-view>
+                </cover-view>
+            </cover-view>
+        </view>
+    </view>
+<view class="topTime">
+  {{choosedCondition.title}}
+</view>
+<view>
+  <view wx:for="{{handledRRecords}}" wx:key="index"
+  class="imgRecords">
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view class="massageDetail">
+          智能照明设备
+        </view>
+      </view>
+      <view>
+        
+      </view>
+  </view>
+<view class="recordProcess">
+  <view class="recordList">
+  <view class="repairWords">
+      <view class="entryTitle">申请时间</view>
+      <view class="times">{{item.repairTime}}</view>
+  </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">位置</view>
+      <view class="times">10-01 18:36:34</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">申请人</view>
+      <view class="times">{{item.applicant}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">联系方式</view>
+      <view class="times">{{item.applicantContact}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">报修内容</view>
+      <view class="times">若无填无即</view>
+    </view>
+  </view>
+  <view class="imgContainer">
+    <view class="grid-container">
+        <view class="item" wx:for="{{item.photoList}}" wx:key="index">
+        <!-- 本地图片在真机上可以预览，http或者https可以直接预览 -->
+       <image class="itemImg" src="{{item}}" bindtap="preview" data-src="{{imgList[index]}}"></image>
+        </view>
+      </view> 
+  </view>
+  <view class="resultParent">
+    <view class="handleResult">
+      处理结果
+    </view>
+    <view class="result">
+    {{item.disposeResult}}
+    </view>
+  </view>
+  <!-- <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">处理结果</view>
+      <view class="times">
+        若无填无即可    若无填无即可    若无填无即可    若无填无即可
+      </view>
+    </view>
+  </view> -->
+</view>
+  </view>
+</view>
+</view>
+<!-- 提示框 -->
+<!-- <button type="ghost" bindtap="handleText">只显示文本</button> -->
+<i-toast id="toast"/>
+</view>
+</view>
+

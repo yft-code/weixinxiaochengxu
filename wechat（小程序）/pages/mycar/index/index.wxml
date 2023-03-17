@@ -1,0 +1,38 @@
+<!--pages/mycar/mycar.wxml-->
+
+<view class="mycar">
+  <top title="{{title}}"></top>
+  <view wx:if="{{data.length === 0}}"> 
+  <image src="/static/image/mycar/noData.png"></image>
+      <view class="noData">暂无车辆</view>
+  </view>
+ <view class="mycarCard"  wx:for="{{ data }}" wx:for-index="index"  wx:key="index" 
+
+     wx:for-item="item" name="{{item.vehicleNumber}}">
+    <view class="mycarCardHead">
+     <view class="mycarCardLeft">{{item.vehicleNumber}} </view>
+     <view class="mycarCardRight" bindtap="editClick" data-name="{{item.vehicleNumber}}"  data-id="{{item.id}}">
+     <image src="/static/image/mycar/edit.png"  class="editImg" ></image>
+     </view>
+     <view class="clear"></view>
+     <view class="mycarCarDate" wx:if="{{item.time}}">{{item.time}}</view>
+     </view>
+     <view class="mycarContent">
+       <view class="mycarContentLi">
+        <image src="/static/image/mycar/detail.png"  class="detailImg"></image>
+        <view class="detailTitle">帐单明细</view>
+        <view class="detailOperate" bindtap="payrecord">查看</view>
+        <view class="clear"></view>
+       </view>
+       <view class="mycarContentLi">
+        <image src="/static/image/mycar/billmonth.png"  class="detailImg"></image>
+        <view class="detailTitle">办理包月</view>
+        <view class="detailOperate" bindtap="doClick" data-id="{{item.id}}">办理</view>
+        <view class="clear"></view>
+       </view>
+     </view>
+  </view> 
+  <view class="mycarTip" wx:if="{{data.length !== 0}}">最多添加3辆车</view>
+  <button  class="mycarAdd" bindtap="addCar">添加</button>
+  <i-toast id="toast"/>
+</view>

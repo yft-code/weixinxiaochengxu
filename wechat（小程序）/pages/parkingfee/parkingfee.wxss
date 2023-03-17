@@ -1,0 +1,105 @@
+
+.messageContainer{
+  padding:25rpx 32rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.zhanwei{
+  height: 32rpx;
+}
+.mbottom{
+  padding-top:0rpx !important;
+}
+.massageDetail{
+  color: #333333;
+  font-weight: 600;
+  font-size: 34rpx;
+}
+.massageTitle{
+  padding-bottom: 30rpx;
+  color: #666666;
+  font-size: 28rpx;
+}
+.commonLeft{
+  flex: 1.2;
+}
+.commonRight{
+  flex: 1;
+}
+.money{
+  font-size: 48rpx;
+  color: rgba(255,169,0,1);
+}
+.unit{
+  font-size: 32rpx;
+  color: rgba(255,169,0,1);
+}
+.confirm{
+  height: 88rpx;
+  line-height: 88rpx !important;
+  color:rgba(255,255,255,1);
+  background-color:rgba(17,170,255,1);
+  font-weight: 100 !important;
+  width:280rpx;
+  margin-right: 32rpx;
+}
+.payContainers{
+  width: 100%;
+  bottom: 0rpx;
+  position: fixed;
+}
+.payContainer{
+  background:#fff;
+  display:flex;
+  justify-content: space-around;
+  height:160rpx;
+  align-items: center;
+}
+.payMessage{
+  height:calc(100% - 32rpx);
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between
+}
+.bg{
+  background-color: #fff;margin:0 32rpx;
+}
+.payTips{
+  font-size: 28rpx;
+  width:100%;
+  text-align:center;
+  padding-top: 24rpx;
+  color:rgb(143, 131, 131)
+}
+.carType{
+  margin-left:16rpx;
+  color:#fff;
+  font-size:24rpx;
+  padding:10rpx 16rpx;
+  background-color:rgba(33,213,164,1);
+  border-radius: 2px;
+}
+.zf{
+  font-size: 32rpx;
+  color: rgba(51,51,51,1);
+}
+.carTime{
+  font-size: 28rpx;
+  color: rgba(51,51,51,1);
+}
+.tr{
+  text-align: right;
+}
+.line{
+  margin:0 32rpx;
+  border-top:1px dotted lightgray
+}
+.paytime{
+  font-size: 28rpx !important;
+}
+.noData{
+  color:#666;
+  font-size: 16px;
+  text-align: center;
+}

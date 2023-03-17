@@ -1,0 +1,95 @@
+<!--pages/payrecord/payrecord.wxml-->
+<view  class="container">
+  <top title="{{title}}"></top>
+  <view class="search-bar">
+        <view class="condition" bindtap="showCondition">
+            <view class="select-condition">{{choosedCondition.title}}</view>
+            <view class="trigger {{ conditionVisible ? 'reverse' : ''}}"></view>
+            <cover-view class="option-list" style="height: {{conditionVisible ? '300rpx': '0'}}">
+                <cover-view bindtap="onChnageCondition" data-id="{{item.id}}" class="list-item" wx:for="{{conditionList}}" wx:key="index" wx:for-index="index">
+                    <cover-view class="title">{{item.title}}</cover-view>
+                    <cover-view class="title" wx:if="{{item.select}}">√</cover-view>
+                </cover-view>
+            </cover-view>
+        </view>
+    </view>
+<view class="topTime">
+  {{choosedCondition.title}}
+</view>
+<view wx:if="{{!records||records.length<=0}}">
+  <view class="tipsContainer">
+<view class="tipsImage">
+<image class="tipsImg" src="/static/image/common/unrecords.png">
+</image>
+</view>
+<view class="tipsText">
+  暂无访客记录
+</view>
+</view>
+</view>
+<view wx:if="{{records&&records.length>0}}">
+  <view wx:for="{{records}}" wx:key="index">
+<view>
+  <view 
+  class="noContainer">
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view>
+          <text class="massageDetail">{{item.tenantName}}</text>
+          <text class="sx">|</text>
+          <text class="carNum">浙C·00002</text>
+        </view>
+      </view>
+      <view>
+      </view>
+    </view>
+    <view class="line">
+    </view>
+<view class="recordProcess" wx:for="{{item.timeList}}"
+  wx:for-item="val" wx:key="index">
+<view wx:if="{{!item.show&&index<=1}}">
+  <view class="recordList">
+    <image class="titleImg" src="/static/image/payrecord/entry.png" mode=""/>
+    <text class="title">
+    <text class="entryTitle">入园时间</text>
+    <text class="times">{{val.inTime}}</text>
+    </text>
+  </view>
+  <view class="recordList">
+    <image class="titleImg" src="/static/image/payrecord/out.png" mode=""/>
+    <text class="title">
+      <text class="entryTitle">出园时间</text>
+      <text class="times">{{val.outTime}}</text>
+    </text>
+  </view>
+ 
+</view>
+<!-- 展开全部的 -->
+<view wx:if="{{item.show}}">
+  <view class="recordList">
+    <image class="titleImg" src="/static/image/payrecord/entry.png" mode=""/>
+    <text class="title">
+    <text class="entryTitle">入园时间</text>
+    <text class="times">{{val.inTime}}</text>
+    </text>
+  </view>
+  <view class="recordList">
+    <image class="titleImg" src="/static/image/payrecord/out.png" mode=""/>
+    <text class="title">
+      <text class="entryTitle">出园时间</text>
+      <text class="times">{{val.outTime}}</text>
+    </text>
+  </view>
+</view>
+</view>
+  <!-- 展开和收缩  -->
+  <view class="showAll" wx:if="{{item.timeList&&item.timeList.length>2}}">
+            <image class="showAllImg" wx:if="{{item.show}}" data-id="{{index}}" bindtap='showAll'  src="/static/image/common/expend.png" mode=""/>
+            <image class="showAllImg" wx:if="{{!item.show}}" data-id="{{index}}" bindtap='showAll'  src="/static/image/common/close.png" mode=""/>
+          </view>
+  </view>
+ 
+</view>
+</view>
+</view>
+</view>

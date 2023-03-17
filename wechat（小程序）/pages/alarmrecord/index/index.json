@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "维修待办",
+  "usingComponents": {
+    "i-toast": "../../../dist/toast/index",
+    "top":"../../../components/top/top"
+  }
+}

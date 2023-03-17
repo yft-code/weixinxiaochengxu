@@ -1,0 +1,104 @@
+<!--pages/parkingfee/parkingfee.wxml-->
+<view class="container">
+  <top title="{{title}}"></top>
+<view class="zhanwei">
+</view>
+<view wx:if="{{!payShow}}">
+  <image src="/static/image/mycar/nocarpay.png"></image>
+      <view class="noData">暂无缴费记录</view>
+</view>
+<view class="payMessage" wx:if="{{payShow}}">
+<view>
+  <view class="bg">
+  <view class="message">
+    <view class="messageContainer">
+      <view class="commonLeft">
+        <view 
+        class="massageTitle"
+        >
+          车牌号
+        </view>
+        <view>
+          <text class="massageDetail">{{payList.vehicleNumber}}</text>
+          <!-- <text class="carType">新能源</text> -->
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+    <view class="messageContainer mbottom">
+      <view class="commonLeft">
+        <view 
+        class="massageTitle"
+        >
+        停车费用
+        </view>
+        <view class="massageDetail">
+         {{payList.payFee}}元
+        </view>
+      </view>
+      <view class="commonRight">
+        <view  class="massageTitle tr">
+          停车时长
+        </view>
+        <view class="tr">
+        <text class="massageDetail">{{payList.parkingTime}}</text>
+        <!-- <text class="carTime">小时</text>
+        <text class="massageDetail">30</text>
+        <text  class="carTime">分</text> -->
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+   <view class="line">
+   </view>
+    <view class="messageContainer">
+      <view class="commonLeft">
+        <view 
+        class="massageTitle"
+        >
+        入园时间
+        </view>
+        <view class="massageDetail paytime">
+          {{payList.inTime}}
+        </view>
+      </view>
+      <view class="commonRight">
+        <view class="massageTitle tr">
+          出园时间
+        </view>
+        <view  class="massageDetail tr paytime">
+          {{payList.outTime}}
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+  </view>
+  </view>
+  <view class="payTips">
+    缴费后请在半小时内离场，以免产生新费用
+  </view>
+</view>
+
+
+</view>
+<!-- 缴费区域 -->
+<view class="payContainers" wx:if="{{payShow}}">
+  <view class="payContainer">
+   <view>
+     <text class="zf">支付:</text>
+     <text class="money">{{payList.payFee}}</text>
+     <text class="unit">元</text>
+   </view>
+   <view>
+     <button class="confirm" bindtap="pay">立即支付</button>
+   </view>
+</view>
+</view>
+ 
+</view>

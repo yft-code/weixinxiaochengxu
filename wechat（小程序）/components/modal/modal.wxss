@@ -1,0 +1,80 @@
+/* components/modal/modal.wxss */
+/*遮罩层*/
+.modal-mask{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+/*遮罩内容*/
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color:#fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+/*中间内容*/
+.main-content{
+  flex: 1;
+  height: 100%;
+  overflow-y: hidden; 
+  max-height: 80vh; /* 内容高度最高80vh 以免内容太多溢出*/
+}
+/*底部按钮*/
+.modal-footer{
+  height: 80rpx;
+  line-height: 80rpx;
+  /* border-top: 2rpx solid #D2D3D5; */
+  margin-top: 30rpx;
+}
+.cancel-btn, .confirm-btn{
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.cancel-btn{
+  color: #000;
+  border-right: 2rpx solid #D2D3D5;
+}
+.confirm-btn {
+  color: #09BA07
+}
+/* 底部模态框的 */
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background:#000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/*对话框 */
+.commodity_attr_box {
+  /* 后面可以只留一个最大高度 */
+  max-height: 700rpx;
+  min-height: 200px;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+}

@@ -1,0 +1,141 @@
+<!--index.wxml-->
+<view class="container">
+  <top title="{{title}}"></top>
+<view>
+<view class="btns">
+  <button class="applyButtons {{show?'applyButton':'recordButton'}}" bindtap="changeTapApply">
+    未处理
+  </button>
+  <button class="recordButtons {{!show?'applyButton':'recordButton'}}" bindtap="changeTapRecord">
+    已处理
+  </button>
+</view>
+<view wx:if="{{show}}">
+<view>
+  <view class="noData"  wx:if="{{records.length === 0}}">暂无数据</view>
+  <view wx:for="{{records}}" wx:key="index"
+  class="notContainer">
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view class="massageDetail">
+          {{item.equipmentName}}
+        </view>
+      </view>
+      <view class="commonRight">
+        <view bindtap="handleRepaire" data-id="{{item.id}}" class="massageRight tr">
+          处理
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+<view class="recordProcess">
+  <view class="recordList">
+    <text class="repairWords">
+    <text class="entryTitle">设备编号</text>
+    <text class="times">{{item.equipmentNumber}}</text>
+    </text>
+  </view>
+  <view class="recordList">
+    <view  class="repairWords">
+      <view class="entryTitle">位置</view>
+      <view class="times">{{item.installationPosition}}</view>
+    </view>
+  </view>
+  <view class="recordList">
+    <text class="repairWords">
+    <text class="entryTitle">告警时间</text>
+    <text class="times">{{item.alarmTime}}</text>
+    </text>
+  </view>
+</view>
+  </view>
+</view>
+</view>
+<!-- 报修记录 -->
+<view wx:if="{{!show}}">
+  <view class="search-bar">
+        <view class="condition" bindtap="showCondition" wx:if="{{conditionList.length !== 0}}">
+            <view class="select-condition">{{choosedCondition.label}}</view>
+            <view class="trigger {{ conditionVisible ? 'reverse' : ''}}"></view>
+            <cover-view class="option-list" style="height: {{conditionVisible ? 'auto': '0'}}">
+                <cover-view bindtap="onChnageCondition" data-id="{{item.value}}" class="list-item" wx:for="{{conditionList}}" wx:key="index" wx:for-index="index">
+                    <cover-view class="title">{{item.label}}</cover-view>
+                    <cover-view  wx:if="{{item.select}}">√</cover-view>
+                </cover-view>
+            </cover-view>
+        </view>
+    </view>
+<view class="topTime">
+  {{choosedCondition.label}}
+</view>
+<view class="recordContent">
+  <view class="noData"  wx:if="{{records.length === 0}}">暂无数据</view>
+  <view wx:for="{{records}}" wx:key="index"
+  class="imgRecords">
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view class="massageDetail">
+          {{item.equipmentName}}
+        </view>
+      </view>
+      <view>
+        
+      </view>
+    </view>
+<view class="recordProcess">
+
+  <view class="recordList">
+  <view class="repairWords">
+      <view class="entryTitle">设备编号</view>
+      <view class="times">{{item.equipmentNumber}}</view>
+  </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">位置</view>
+      <view class="times">{{item.installationPosition}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">告警时间</view>
+      <view class="times">{{item.alarmTime}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">告警内容</view>
+      <view class="times">{{item.alarmContent}}</view>
+    </view>
+  </view>
+  <view class="resultParent">
+    <view class="handleResult">
+      处理结果
+    </view>
+    <view class="result">
+      {{item.result}}
+    </view>
+  </view>
+  <!-- <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">处理结果</view>
+      <view class="times">
+        若无填无即可    若无填无即可    若无填无即可    若无填无即可
+      </view>
+    </view>
+  </view> -->
+</view>
+  </view>
+</view>
+</view>
+<!-- 提示框 -->
+<!-- <button type="ghost" bindtap="handleText">只显示文本</button> -->
+<i-toast id="toast"/>
+</view>
+</view>
+

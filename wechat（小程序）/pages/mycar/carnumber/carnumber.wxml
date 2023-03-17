@@ -1,0 +1,87 @@
+<!--components/CarNumber/carNumber.wxml-->
+<!-- 车牌号输入框 -->
+<view>
+<top title="{{title}}"></top>
+<view class="carTitle">
+  请输入车牌号码
+</view>
+<view class="inputs custom-input-class">
+  <view class="inputs-item custom-item-class {{ currentInput === 0 ? 'item-active' : '' }}" bind:tap="showProvinceBoard">{{ carNum[0] }}</view>
+  <view class="inputs-item custom-item-class {{ currentInput === 1 ? 'item-active' : '' }}" bind:tap="showAreaBoard">{{ carNum[1] }}</view>
+  <!-- <view class="split">·</view> -->
+  <view class="inputs-item custom-item-class {{ currentInput === 2 ? 'item-active' : '' }}" bind:tap="showNumberBoard" data-index="{{ 2 }}">{{ carNum[2] }}</view>
+  <view class="inputs-item custom-item-class {{ currentInput === 3 ? 'item-active' : '' }}" bind:tap="showNumberBoard" data-index="{{ 3 }}">{{ carNum[3] }}</view>
+  <view class="inputs-item custom-item-class {{ currentInput === 4 ? 'item-active' : '' }}" bind:tap="showNumberBoard" data-index="{{ 4 }}">{{ carNum[4] }}</view>
+  <view class="inputs-item custom-item-class {{ currentInput === 5 ? 'item-active' : '' }}" bind:tap="showNumberBoard" data-index="{{ 5 }}">{{ carNum[5] }}</view>
+  <view class="inputs-item custom-item-class {{ currentInput === 6 ? 'item-active' : '' }}" bind:tap="showNumberBoard" data-index="{{ 6 }}">{{ carNum[6] }}</view>
+  <view wx:if="{{newEnergy}}"
+  class="new-energy" bind:tap="changeCarToNewEnergy">
+       <view class="tips">
+         +
+       </view>
+       <view>
+         新能源
+       </view>
+  </view>
+  <view wx:if="{{!newEnergy}}" class="inputs-item custom-item-class {{ currentInput === 7 ? 'item-active' : '' }}" bind:tap="showNumberBoard" data-index="{{ 7 }}">{{ carNum[7] }}</view>
+  <!-- <view wx:if="{{ !newEnergy }}" class="new-energy" bind:tap="changeCarToNewEnergy">
+    <image class="new-energy-img custom-energy-icon" src="../../statics/img/new_energy.png" />
+  </view>
+  <view wx:else class="inputs-item custom-item-class {{ currentInput === 7 ? 'item-active' : '' }}" bind:tap="showLastBoard">{{ carNum[7] }}</view> -->
+</view>
+<view>
+  <button class="confirm" type="primary" bindtap="confirm">确认</button>
+</view>
+<!-- 虚拟键盘 -->
+<view class="keyboard" hidden="{{ !keyboard }}">
+  <!-- <view class="keyboardClose">
+    <view class="keyboardClose_btn" bindtap='closeKeyboard'>关闭</view>
+  </view> -->
+  <!-- 省份简写键盘 -->
+  <view class="keyboard-item" wx:if="{{ keyboardType === 1 }}">
+    <view class="keyboard-line" wx:for="{{ provinces }}" wx:key="index">
+      <view class="keyboard-btn" wx:for="{{ item }}" wx:key="index" data-val="{{ itemlist }}" wx:for-item="itemlist" bindtap='chooseProvince'>
+        {{ itemlist }}
+      </view>
+    </view>
+    <view class="keyboard-del" bindtap="delProvince">
+      <text>清除</text>
+    </view>
+  </view>
+  <!-- 地区简写键盘 -->
+  <view class="keyboard-item" wx:if="{{ keyboardType === 2 }}">
+    <view class="keyboard-line" wx:for="{{ areas }}" wx:key="index">
+      <view class="keyboard-btn" wx:for="{{ item }}" wx:key="index" data-val="{{ itemlist }}" wx:for-item="itemlist" bindtap='chooseArea'>
+        {{ itemlist }}
+      </view>
+    </view>
+    <view class="keyboard-del" bindtap='delArea'>
+      <text>清除</text>
+    </view>
+  </view>
+  <!-- 普通类型键盘 -->
+  <view class="keyboard-item" wx:if="{{ keyboardType === 3 }}">
+    <view class="keyboard-line" wx:for="{{ numbers }}" wx:key="index">
+      <view class="keyboard-btn" wx:for="{{ item }}" wx:key="index" data-val="{{ itemlist }}" wx:for-item="itemlist" bindtap='chooseNumber'>
+        {{ itemlist }}
+      </view>
+    </view>
+    <view class="keyboard-del" bindtap='delNumber'>
+      <text>清除</text>
+    </view>
+  </view>
+  <!-- 最后一位键盘 -->
+  <view class="keyboard-item" wx:if="{{ keyboardType === 4 }}">
+    <view class="keyboard-line" wx:for="{{ last }}" wx:key="index">
+      <view class="keyboard-btn" wx:for="{{ item }}" wx:key="index" data-val="{{ itemlist }}" wx:for-item="itemlist" bindtap='chooseLast'>
+        {{ itemlist }}
+      </view>
+    </view>
+    <view class="keyboard-del" bindtap='delLast'>
+      <text>清除</text>
+    </view>
+  </view>
+</view>
+</view>
+
+

@@ -1,0 +1,67 @@
+<!--pages/repairpending/handle/handle.wxml-->
+<view class="container">
+<top title="{{title}}"></top>
+<view class="zhanwei">
+</view>
+  <view>
+  <view class="handleContainer">
+  <view class="messageContainer">
+      <view class="commonLeft">
+        <view class="massageDetail">
+          智能照明设备
+        </view>
+      </view>
+      <view>  
+      </view>
+    </view>
+<view class="recordProcess">
+  <view class="recordList">
+  <view class="repairWords">
+      <view class="entryTitle">设备编号</view>
+      <view class="times">{{dataInfo.equipmentNumber}}</view>
+  </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">位置</view>
+      <view class="times">{{dataInfo.installationPosition}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">告警时间</view>
+      <view class="times">{{dataInfo.alarmTime}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">告警内容</view>
+      <view class="times">{{dataInfo.alarmContent}}</view>
+    </view>
+  </view>
+
+  <view class="recordList">
+    <view class="repairWords">
+      <view class="entryTitle">报修内容</view>
+      <view class="times">{{dataInfo.alarmContent}}</view>
+    </view>
+  </view>
+  <view>
+    <view class="handleResult">
+      处理结果
+    </view>
+    <view class="textAreaContainer">
+      <textarea  value="{{result}}" bindinput="bindTextAreaBlur" placeholder-class="placeholderStyle"  class="textArea" placeholder="若无填无即可，如有异常请说明。" type="text"/>
+    </view>
+  </view>
+</view>
+  </view>
+</view>
+<view class="btnType">
+    <button  class="confirm" bindtap="submit">提交</button>
+  </view>
+  <i-toast id="toast"/>
+</view>

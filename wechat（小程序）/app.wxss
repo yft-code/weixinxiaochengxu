@@ -1,0 +1,225 @@
+/**app.wxss**/
+.container {
+  font-size: 32rpx;
+  background:#F5F5F5;
+  min-height: 100vh;
+} 
+.zhanwei{
+  height:16rpx;
+}
+.inputContainer{
+  display: flex;
+  width:100%;
+  height: 110rpx;
+  border-bottom:2rpx solid #F9F9F9;
+  align-items: center;
+}
+.inputLabel{
+  font-size: 32rpx;
+  color: #666666;
+  padding-right: 20rpx;
+  white-space:nowrap;
+}
+.inputAreaLabel{
+  font-size: 32rpx;
+  color: #666666;
+    padding:26rpx 20rpx 26rpx 0rpx;
+}
+.inputFoucs{
+  text-align: right;
+}
+.formPadding{
+  padding: 0 32rpx;
+}
+.selectImg {
+  width:18px;
+  height:20px;
+  vertical-align: middle;
+}
+.selectContainer{
+  display: flex;
+  justify-content:space-between;
+  width:100%;
+  align-items: center;
+}
+.selectedContainer{
+  width:100%;
+  text-align: right;
+}
+.mark{
+  color: rgba(51,51,51,0.6);
+  font-size:32rpx;
+}
+/* 按钮的公共样式 */
+button {
+  border-radius: 4px !important; 
+  padding: 0 !important;
+}
+/* textarea */
+.placeholderStyle{
+  color: rgba(51,51,51,0.6);
+  font-size: 32rpx;
+}
+textarea{
+  padding: 24rpx !important;
+}
+/* input的placeholder */
+.inputPlaceholder{
+  text-align: right;
+  color: rgba(51,51,51,0.6);
+  font-size: 32rpx;
+}
+input{
+  width: 100% !important;
+}
+.inputCar{
+  width: 470rpx !important;
+}
+.selectPlaceholder{
+  width: 100%;
+  text-align: right;
+  color: rgba(51,51,51,0.6);
+  font-size: 32rpx;
+}
+
+.car{
+  /* margin-left:-20px; */
+  text-align: center;
+  line-height:48rpx;
+  position:relative;
+  width:52rpx;
+  height:48rpx;
+  background-color:#F9F9F9;
+}
+
+.car:before{
+  width:0px;
+  height:0px;
+  border: 15rpx transparent solid;
+  border-right:0px;
+  border-bottom-color:#666666;
+  position:absolute;
+  bottom:1px;
+  right:1rpx;
+  content:""
+}
+/* select选择框 */
+/* 下拉框 */
+  /* search */
+  .search-bar {
+    width: 50%;
+    height: 84rpx;
+    /* background: #fff; */
+    /* border-top: 1rpx solid #f6f6f6; */
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    /* border: 1rpx solid red; */
+  }
+
+  .search-bar .condition {
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    position: relative;
+  }
+  
+  .search-bar .condition .option-list {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    left: 0;
+    top: 60rpx;
+    box-shadow: 0px 0px 7px -3px rgba(33, 72, 141, 0.2);
+    background-color: #fff;
+    box-sizing: border-box;
+    /* background: #f4f4f4; */
+    padding: 0rpx 20rpx;
+    margin-top: 4rpx;
+    border-radius: 6rpx;
+  }
+  
+  .option-list .list-item {
+
+    color: #333333;
+    font-size: 26rpx;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search-bar .condition .select-condition {
+    /* color: #BABABA; */
+    font-size: 26rpx;
+    color: #333333;   
+
+  }
+
+  .search-bar .condition .trigger {
+    width: 0;
+    height: 0;
+    border: 12rpx solid transparent;
+    border-top: 15rpx solid #c2c2c2;
+    position: relative;
+    top: 8rpx;
+    transform: rotate(0deg);
+    transform-origin: center 7rpx;
+    transition: transform 0.4s;
+  }
+  .search-bar .condition .trigger.reverse {
+    transform: rotate(180deg);
+    transform-origin: center 7rpx;
+    transition: transform 0.4s;
+  }
+  /* 下拉框结束 */
+.pickStyle{
+  width:100%;
+}
+/* 已处理未处理按钮样式 */
+.applyButton{
+  color:#fff;
+  height: 65.66rpx !important;
+  line-height:65.66rpx !important ;
+  font-weight:500;
+  font-size:32rpx !important;
+  background-color: #11AAFF;
+}
+.applyButtons{
+  margin:0 12rpx 0 32rpx !important;
+}
+.recordButton{
+  height: 65.66rpx !important;
+  line-height:65.66rpx !important;
+  color:#333333;
+  font-weight:500;
+  font-size:32rpx;
+  background-color:#F5F5F5;
+}
+.recordButtons{
+  margin:0 32rpx 0 12rpx !important;
+}
+
+/* 暂无记录公共样式 */
+.tipsText{
+  text-align: center;
+  margin-top:20rpx;
+  color:#666666;
+  font-size:32rpx
+}
+.tipsContainer{
+  margin-top:20rpx;
+}
+.tipsImage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tipsImg{
+  width:100%;
+  height:376rpx
+}

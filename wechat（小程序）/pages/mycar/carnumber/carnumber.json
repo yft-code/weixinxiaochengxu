@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加车辆",
+  "component": true,
+  "usingComponents": {
+    "top":"../../../components/top/top"
+  }
+}

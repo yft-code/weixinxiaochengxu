@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="loginContainer">
+<view style="padding-top:{{barHeight + 10}}px;" class="login">
+  登录
+</view>
+<tips reset='reset' url="{{url}}" text="{{text}}">
+</tips> 
+<view class="confirm" type="primary"  bindtap="login">微信用户一键登录</view>
+</view>
+

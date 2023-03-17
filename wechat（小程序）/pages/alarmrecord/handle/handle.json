@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "处理",
+  "usingComponents": {
+    "top":"../../../components/top/top",
+    "i-toast": "../../../dist/toast/index"
+  }
+}
