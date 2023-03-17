@@ -1,0 +1,33 @@
+<html>
+<header>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        function b64EncodeUnicode(str) {
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+                function (match, p1) {
+                    return String.fromCharCode('0x' + p1);
+                }));
+        }
+        sEncoded = b64EncodeUnicode("sa@nga:Quantum2018");
+     
+        $.ajax({
+            type: 'POST',
+            url: "http://192.168.1.11/etaas/api/authentication/sign_in",
+            headers: { 'Content-Type': 'application/json;charset=utf8', 'Authorization': "Basic "+ sEncoded },
+            data:JSON.stringify({"user":"sa@nga","password":"Quantum2018"}),
+            success: function () {
+              
+                window.location.href='octane.html';
+            },
+            error: function(data){
+                
+            }
+        })
+    </script>
+</header>
+
+<body>
+    
+</body>
+
+</html>

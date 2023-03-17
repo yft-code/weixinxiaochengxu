@@ -1,0 +1,293 @@
+diff --git a/node_modules/flv.js/src/core/mse-controller.js b/node_modules/flv.js/src/core/mse-controller.js
+index 7974940..cfac18b 100644
+--- a/node_modules/flv.js/src/core/mse-controller.js
++++ b/node_modules/flv.js/src/core/mse-controller.js
+@@ -107,7 +107,9 @@ class MSEController {
+ 
+         this._mediaElement = mediaElement;
+         this._mediaSourceObjectURL = window.URL.createObjectURL(this._mediaSource);
+-        mediaElement.src = this._mediaSourceObjectURL;
++        if(mediaElement){
++            mediaElement.src = this._mediaSourceObjectURL;
++        }
+     }
+ 
+     detachMediaElement() {
+@@ -223,6 +225,9 @@ class MSEController {
+     }
+ 
+     appendMediaSegment(mediaSegment) {
++        if (!this._mediaSource || this._mediaSource.readyState !== 'open') {
++                return
++        }
+         let ms = mediaSegment;
+         this._pendingSegments[ms.type].push(ms);
+ 
+@@ -230,9 +235,11 @@ class MSEController {
+             this._doCleanupSourceBuffer();
+         }
+ 
+-        let sb = this._sourceBuffers[ms.type];
+-        if (sb && !sb.updating && !this._hasPendingRemoveRanges()) {
+-            this._doAppendSegments();
++        if(this._sourceBuffers){
++            let sb = this._sourceBuffers[ms.type];
++            if (sb && !sb.updating && !this._hasPendingRemoveRanges()) {
++                this._doAppendSegments();
++            }
+         }
+     }
+ 
+@@ -245,7 +252,7 @@ class MSEController {
+ 
+             // abort current buffer append algorithm
+             let sb = this._sourceBuffers[type];
+-            if (this._mediaSource.readyState === 'open') {
++            if (!this._mediaSource.readyState||this._mediaSource.readyState === 'open') {
+                 try {
+                     // If range removal algorithm is running, InvalidStateError will be throwed
+                     // Ignore it.
+@@ -268,10 +275,12 @@ class MSEController {
+             }
+ 
+             // record ranges to be remove from SourceBuffer
+-            for (let i = 0; i < sb.buffered.length; i++) {
+-                let start = sb.buffered.start(i);
+-                let end = sb.buffered.end(i);
+-                this._pendingRemoveRanges[type].push({start, end});
++            if(sb.buffered){
++                for (let i = 0; i < sb.buffered.length; i++) {
++                    let start = sb.buffered.start(i);
++                    let end = sb.buffered.end(i);
++                    this._pendingRemoveRanges[type].push({start, end});
++                }
+             }
+ 
+             // if sb is not updating, let's remove ranges now!
+@@ -323,6 +332,9 @@ class MSEController {
+     }
+ 
+     _needCleanupSourceBuffer() {
++        if (!this._mediaSource || this._mediaSource.readyState !== 'open') {
++               return
++        }
+         if (!this._config.autoCleanupSourceBuffer) {
+             return false;
+         }
+@@ -345,11 +357,14 @@ class MSEController {
+     }
+ 
+     _doCleanupSourceBuffer() {
++        if (!this._mediaSource || this._mediaSource.readyState !== 'open') {
++            return
++     }
+         let currentTime = this._mediaElement.currentTime;
+ 
+         for (let type in this._sourceBuffers) {
+             let sb = this._sourceBuffers[type];
+-            if (sb) {
++            if (sb && sb.buffered) {
+                 let buffered = sb.buffered;
+                 let doRemove = false;
+ 
+@@ -398,6 +413,9 @@ class MSEController {
+     }
+ 
+     _doRemoveRanges() {
++        if (!this._mediaSource || this._mediaSource.readyState !== 'open') {
++                     return
++        }
+         for (let type in this._pendingRemoveRanges) {
+             if (!this._sourceBuffers[type] || this._sourceBuffers[type].updating) {
+                 continue;
+@@ -412,6 +430,9 @@ class MSEController {
+     }
+ 
+     _doAppendSegments() {
++        if (!this._mediaSource || this._mediaSource.readyState !== 'open') {
++            return
++        }
+         let pendingSegments = this._pendingSegments;
+ 
+         for (let type in pendingSegments) {
+@@ -442,7 +463,9 @@ class MSEController {
+                 }
+ 
+                 try {
+-                    this._sourceBuffers[type].appendBuffer(segment.data);
++                    if(this._sourceBuffers[type]){
++                        this._sourceBuffers[type].appendBuffer(segment.data);
++                    }
+                     this._isBufferFull = false;
+                     if (type === 'video' && segment.hasOwnProperty('info')) {
+                         this._idrList.appendArray(segment.info.syncPoints);
+diff --git a/node_modules/flv.js/src/core/transmuxer.js b/node_modules/flv.js/src/core/transmuxer.js
+index 483795e..563ca29 100644
+--- a/node_modules/flv.js/src/core/transmuxer.js
++++ b/node_modules/flv.js/src/core/transmuxer.js
+@@ -186,7 +186,9 @@ class Transmuxer {
+ 
+     _onIOError(type, info) {
+         Promise.resolve().then(() => {
+-            this._emitter.emit(TransmuxingEvents.IO_ERROR, type, info);
++            if(this._emitter){
++                this._emitter.emit(TransmuxingEvents.IO_ERROR, type, info);
++            }
+         });
+     }
+ 
+diff --git a/node_modules/flv.js/src/core/transmuxing-controller.js b/node_modules/flv.js/src/core/transmuxing-controller.js
+index 2543999..c592623 100644
+--- a/node_modules/flv.js/src/core/transmuxing-controller.js
++++ b/node_modules/flv.js/src/core/transmuxing-controller.js
+@@ -332,14 +332,16 @@ class TransmuxingController {
+         let segmentIndex = extraData;
+         let nextSegmentIndex = segmentIndex + 1;
+ 
+-        if (nextSegmentIndex < this._mediaDataSource.segments.length) {
+-            this._internalAbort();
+-            this._remuxer.flushStashedSamples();
+-            this._loadSegment(nextSegmentIndex);
+-        } else {
+-            this._remuxer.flushStashedSamples();
+-            this._emitter.emit(TransmuxingEvents.LOADING_COMPLETE);
+-            this._disableStatisticsReporter();
++        if(this._remuxer){
++            if (nextSegmentIndex < this._mediaDataSource.segments.length) {
++                this._internalAbort();
++                this._remuxer.flushStashedSamples();
++                this._loadSegment(nextSegmentIndex);
++            } else {
++                this._remuxer.flushStashedSamples();
++                this._emitter.emit(TransmuxingEvents.LOADING_COMPLETE);
++                this._disableStatisticsReporter();
++            }
+         }
+     }
+ 
+@@ -354,7 +356,9 @@ class TransmuxingController {
+ 
+     _onIOException(type, info) {
+         Log.e(this.TAG, `IOException: type = ${type}, code = ${info.code}, msg = ${info.msg}`);
+-        this._emitter.emit(TransmuxingEvents.IO_ERROR, type, info);
++        if(this._emitter){
++            this._emitter.emit(TransmuxingEvents.IO_ERROR, type, info);
++        }
+         this._disableStatisticsReporter();
+     }
+ 
+@@ -420,10 +424,12 @@ class TransmuxingController {
+     _reportStatisticsInfo() {
+         let info = {};
+ 
+-        info.url = this._ioctl.currentURL;
+-        info.hasRedirect = this._ioctl.hasRedirect;
+-        if (info.hasRedirect) {
+-            info.redirectedURL = this._ioctl.currentRedirectedURL;
++        if(this._ioctl){
++            info.url = this._ioctl.currentURL;
++            info.hasRedirect = this._ioctl.hasRedirect;
++            if (info.hasRedirect) {
++                info.redirectedURL = this._ioctl.currentRedirectedURL;
++            }
+         }
+ 
+         info.speed = this._ioctl.currentSpeed;
+diff --git a/node_modules/flv.js/src/player/flv-player.js b/node_modules/flv.js/src/player/flv-player.js
+index e9a2524..6b56766 100644
+--- a/node_modules/flv.js/src/player/flv-player.js
++++ b/node_modules/flv.js/src/player/flv-player.js
+@@ -130,11 +130,13 @@ class FlvPlayer {
+ 
+     attachMediaElement(mediaElement) {
+         this._mediaElement = mediaElement;
+-        mediaElement.addEventListener('loadedmetadata', this.e.onvLoadedMetadata);
+-        mediaElement.addEventListener('seeking', this.e.onvSeeking);
+-        mediaElement.addEventListener('canplay', this.e.onvCanPlay);
+-        mediaElement.addEventListener('stalled', this.e.onvStalled);
+-        mediaElement.addEventListener('progress', this.e.onvProgress);
++        if(mediaElement){
++            mediaElement.addEventListener('loadedmetadata', this.e.onvLoadedMetadata);
++            mediaElement.addEventListener('seeking', this.e.onvSeeking);
++            mediaElement.addEventListener('canplay', this.e.onvCanPlay);
++            mediaElement.addEventListener('stalled', this.e.onvStalled);
++            mediaElement.addEventListener('progress', this.e.onvProgress);
++        }
+ 
+         this._msectl = new MSEController(this._config);
+ 
+@@ -147,13 +149,15 @@ class FlvPlayer {
+                 this.load();
+             }
+         });
+-        this._msectl.on(MSEEvents.ERROR, (info) => {
+-            this._emitter.emit(PlayerEvents.ERROR,
+-                               ErrorTypes.MEDIA_ERROR,
+-                               ErrorDetails.MEDIA_MSE_ERROR,
+-                               info
+-            );
+-        });
++        if(JSON.stringify(this._emitter.events) !== "{}"){
++            this._msectl.on(MSEEvents.ERROR, (info) => {
++                this._emitter.emit(PlayerEvents.ERROR,
++                                   ErrorTypes.MEDIA_ERROR,
++                                   ErrorDetails.MEDIA_MSE_ERROR,
++                                   info
++                );
++            });
++        }
+ 
+         this._msectl.attachMediaElement(mediaElement);
+ 
+@@ -233,7 +237,9 @@ class FlvPlayer {
+             this._emitter.emit(PlayerEvents.RECOVERED_EARLY_EOF);
+         });
+         this._transmuxer.on(TransmuxingEvents.IO_ERROR, (detail, info) => {
+-            this._emitter.emit(PlayerEvents.ERROR, ErrorTypes.NETWORK_ERROR, detail, info);
++            if(this._transmuxer){
++                this._emitter.emit(PlayerEvents.ERROR, ErrorTypes.NETWORK_ERROR, detail, info);
++            }
+         });
+         this._transmuxer.on(TransmuxingEvents.DEMUX_ERROR, (detail, info) => {
+             this._emitter.emit(PlayerEvents.ERROR, ErrorTypes.MEDIA_ERROR, detail, {code: -1, msg: info});
+@@ -281,7 +287,9 @@ class FlvPlayer {
+     }
+ 
+     pause() {
+-        this._mediaElement.pause();
++        if(this._mediaElement){
++            this._mediaElement.pause();
++        }
+     }
+ 
+     get type() {
+@@ -515,7 +523,9 @@ class FlvPlayer {
+                     // .currentTime is consists with .buffered timestamp
+                     // Chrome/Edge use DTS, while FireFox/Safari use PTS
+                     this._msectl.seek(target);
+-                    this._transmuxer.seek(Math.floor(target * 1000));
++                    if(this._transmuxer.seek){
++                        this._transmuxer.seek(Math.floor(target * 1000));
++                    }
+                     // set currentTime if accurateSeek, or wait for recommend_seekpoint callback
+                     if (this._config.accurateSeek) {
+                         this._requestSetTime = true;
+diff --git a/node_modules/flv.js/src/utils/logger.js b/node_modules/flv.js/src/utils/logger.js
+index e8d3b09..a407f87 100644
+--- a/node_modules/flv.js/src/utils/logger.js
++++ b/node_modules/flv.js/src/utils/logger.js
+@@ -35,11 +35,11 @@ class Log {
+         }
+ 
+         if (console.error) {
+-            console.error(str);
++            // console.error(str);
+         } else if (console.warn) {
+-            console.warn(str);
++            // console.warn(str);
+         } else {
+-            console.log(str);
++            // console.log(str);
+         }
+     }
+ 

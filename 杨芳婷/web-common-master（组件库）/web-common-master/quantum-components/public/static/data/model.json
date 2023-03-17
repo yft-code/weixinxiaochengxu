@@ -1,0 +1,41 @@
+{
+	"type": "FeatureCollection",
+	"features": [{
+		"type": "Feature",
+		"properties": {
+			"type": "model-p",
+			"style": {
+				"scale": 5.5,
+				"minimumPixelSize": 1,
+				"maximumScale": 1,
+				"modelUrl": "static/data/gltf/baimo.glb",
+				"heading": -238.1
+			}
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [114.217076, 22.265309, -0.01]
+		}
+	},{
+        "type": "Feature",
+        "properties": {
+            "type": "model-p",
+            "style": {
+                "scale": 15,
+                "minimumPixelSize": 1,
+                "maximumScale": 50,
+                "modelUrl": "static/data/gltf/output.glb",
+                "heading": -250,
+                "opcity": 0.3
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                114.161906,
+                22.322611,
+                0
+            ]
+        }
+    }]
+}

@@ -1,0 +1,85 @@
+{
+  "map3d": {
+    "homeButton": false,
+    "sceneModePicker": false,
+    "navigationHelpButton": false,
+    "infoBox": false,
+    "vrButton": false,
+    "fullscreenButton": false,
+    "geocoder": false,
+    "baseLayerPicker": true,
+    "center": {
+      "y": 22.268253,
+      "x": 108.617295,
+      "z": 29920356.33,
+      "heading": 350.7,
+      "pitch": -88.1,
+      "roll": 0
+    },
+    "minzoom": 1,
+    "maxzoom": 30000000,
+    "style": {
+      "atmosphere": true,
+      "lighting": false,
+      "fog": true,
+      "testTerrain": true
+    },
+    "mouseZoom": true,
+    "location": {
+      "crs": "",
+      "format": "<div>视高：{height}米</div><div>方向：{heading}度</div><div>海拔：{z}米</div><div>纬度:{y}</div><div>经度:{x}</div>"
+    },
+    "navigation": {},
+    "terrain": {
+      "url": "http://data.marsgis.cn/terrain",
+      "visible": true
+    },
+    "crs": "",
+    "basemaps": [
+      {
+        "pid": 10,
+        "name": "ArcGIS卫星",
+        "icon": "static/img/basemaps/esriWorldImagery.png",
+        "type": "arcgis",
+        "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"
+      },
+      {
+        "pid": 1,
+        "name": "测试地图",
+        "type": "group",
+        "crs": "gcj",
+        "icon": "static/img/basemaps/google_img.png",
+        "layers": [{ "name": "底图", "type": "www_google", "layer": "img_d" }],
+        "url":"http://data.marsgis.cn/terrain"
+      },
+      {
+        "pid": 1,
+        "name": "谷歌卫星(有偏移)",
+        "type": "group",
+        "crs": "gcj",
+        "icon": "static/img/basemaps/google_img.png",
+        "layers": [{ "name": "底图", "type": "www_google", "layer": "img_d" }],
+        "url": "https://webst02.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}"
+      },
+      
+      {
+        "pid": 10,
+        "name": "默认图片底图",
+        "type": "tms",
+        "icon": "static/img/basemaps/stamenWatercolor.png"
+      },
+      {
+        "pid": 10,
+        "name": "谷歌卫星(有偏移)",
+        "type": "group",
+        "icon": "static/img/basemaps/gaode_img.png",
+        "crs": "gcj",
+        "layers": [
+            { "name": "底图", "type": "www_gaode", "layer": "img_d" },
+            { "name": "注记", "type": "www_gaode", "layer": "img_z" }
+        ]
+    }
+    ],
+    "operationallayers": [{ "type": "custom_graticule", "name": "经纬网" }]
+  }
+}

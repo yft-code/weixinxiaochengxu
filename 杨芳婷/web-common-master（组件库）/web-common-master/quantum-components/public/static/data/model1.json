@@ -1,0 +1,26 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "type": "model-p",
+                "style": {
+                    "scale": 15,
+                    "minimumPixelSize": 1,
+                    "maximumScale": 50,
+                    "modelUrl": "static/data/gltf/output.glb",
+                    "heading": -250
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    114.161906,
+                    22.322611,
+                    0
+                ]
+            }
+        }
+    ]
+}

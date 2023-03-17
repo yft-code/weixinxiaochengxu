@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "员工居住楼",
+                "baseHeight": 5,
+                "floorHeight": 4.5,
+                "floorNum": 6
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            114.217671,
+                            22.270947,
+                            0
+                        ],
+                        [
+                            114.217485,
+                            22.270824,
+                            0
+                        ],
+                        [
+                            114.217108,
+                            22.27131,
+                            0
+                        ],
+                        [
+                            114.217305,
+                            22.271446,
+                            0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

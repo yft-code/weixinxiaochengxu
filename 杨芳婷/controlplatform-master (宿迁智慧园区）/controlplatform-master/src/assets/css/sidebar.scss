@@ -1,0 +1,104 @@
+#app{
+.muen-el {
+  //滚动条整体
+  height: 100%;
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 14px;
+  }
+  //滚动条小方块
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height:5PX !important;
+    -webkit-box-shadow: inset 0 0 5px rgb(199, 203, 209);
+    background: rgb(199, 203, 209);
+  }
+  //滚动条轨道
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgb(248, 248, 248);
+    border-radius: 0;
+    background: rgb(248, 248, 248);
+  }
+}
+ .el-menu--collapse {
+  width: 100%;
+}
+ .el-scrollbar__bar.is-horizontal {
+  height: 0;
+}
+ .el-icon-arrow-right:before {
+  content: "";
+}
+ .el-menu-item {
+  color: #fff !important;
+  font-size: 14px !important;
+}
+.el-menu-item i {
+  color: #fff !important;
+  font-size: 14px;
+}
+.el-menu-item.is-active {
+  //  text-decoration: none;
+  color: #fff !important;
+  background: rgba(34,131,255,0.24) !important;
+  border-right: 2px solid rgba(34,131,255,0.24);
+}
+// 修改父元素的背景颜色
+.el-submenu__title {
+  font-weight: 400;
+  color: #ffff !important;
+  background-color: #292D3A !important;
+  font-size: 14px;
+}
+ .el-submenu__title i {
+  font-size: 14px;
+  color: #fff !important;
+  margin-right: 18px;
+}
+.el-menu-item i {
+  font-size: 14px;
+  color: #fff !important;
+  margin-right: 18px;
+}
+.el-submenu .el-menu-item {
+  min-width: 100px !important;
+  padding: 0 !important;
+  padding-left: 60px !important;
+}
+.el-scrollbar__wrap {
+  margin-right: 0px !important;
+  overflow: hidden;
+}
+a:nth-child(3) {
+  color: red;
+}
+.el-scrollbar {
+  overflow: initial;
+}
+.el-menu-item:hover {
+  background: rgba(34,131,255,0.24) !important;
+}
+.menuSider {
+  width: 260px;
+  height: 100%;
+  background: rgba(41,45,58,1);
+  box-shadow: 0px 0px 7px -3px rgba(10, 25, 51, 0.2);
+  .el-scrollbar__view{
+    height: 100%;
+  }
+  .menuSiderScroll {
+    // background: blue;
+    position: fixed;
+    height: 100%;
+    width: 266px;
+    left: 0;
+    top: 64px;
+  }
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+}

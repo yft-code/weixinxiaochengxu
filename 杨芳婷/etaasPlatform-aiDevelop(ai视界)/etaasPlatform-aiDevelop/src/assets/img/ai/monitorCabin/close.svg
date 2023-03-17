@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>1.通用/2.图标/2.设计/关</title>
+    <g id="1.通用/2.图标/2.设计/关" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="time-circle-fill" fill="#000000" fill-rule="nonzero" opacity="0">
+            <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+        </g>
+        <rect id="矩形" fill="#1AAEF6" fill-rule="nonzero" opacity="0" x="0" y="0" width="24" height="24"></rect>
+        <rect id="矩形" fill="#1AAEF6" fill-rule="nonzero" opacity="0" x="0" y="0" width="24" height="24"></rect>
+        <g id="开关" fill-rule="nonzero">
+            <rect id="矩形" fill="#1AAEF6" opacity="0" x="0" y="0" width="24" height="24"></rect>
+            <path d="M17.61,18 L6.39,18 C2.87746899,18 0.03,15.152531 0.03,11.64 C0.03,8.12746899 2.87746899,5.28 6.39,5.28 L17.61,5.28 C21.122531,5.28 23.97,8.12746899 23.97,11.64 C23.97,15.152531 21.122531,18 17.61,18 Z M6.39,6.735 C3.70589612,6.735 1.53,8.91089612 1.53,11.595 C1.53,14.2791039 3.70589612,16.455 6.39,16.455 L17.61,16.455 C20.2941039,16.455 22.47,14.2791039 22.47,11.595 C22.47,8.91089612 20.2941039,6.735 17.61,6.735 L6.39,6.735 Z" id="形状" fill="#E8EEFF"></path>
+            <path d="M3.03,11.595 C3.03,13.641215 4.688785,15.3 6.735,15.3 C8.781215,15.3 10.44,13.641215 10.44,11.595 C10.44,10.271331 9.73383104,9.04821032 8.58750003,8.38637579 C7.44116903,7.72454126 6.02883097,7.72454126 4.88249997,8.38637579 C3.73616896,9.04821032 3.03,10.271331 3.03,11.595 L3.03,11.595 Z" id="路径" fill="#E8EEFF"></path>
+        </g>
+    </g>
+</svg>
